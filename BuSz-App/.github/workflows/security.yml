@@ -1,0 +1,55 @@
+name: "Security Scan"
+
+on:
+  # Tự động chạy khi có code mới push lên nhánh chính
+  push:
+    branches: [ "main", "master", "develop" ]
+  
+  # Tự động chạy khi có Pull Request để kiểm tra code trước khi merge
+  pull_request:
+    branches: [ "main", "master", "develop" ]
+
+  # Tự động chạy định kỳ (ví dụ: 0:00 mỗi Thứ Hai) để phát hiện lỗ hổng mới công bố
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  # Cấu hình cho CodeQL
+  analyze-codeql:
+    name: CodeQL Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: 'javascript' # Thay đổi ngôn ngữ phù hợp với dự án của bạn (python, go, java, v.v.)
+
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v3
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+
+  # Cấu hình cho Semgrep
+  analyze-semgrep:
+    name: Semgrep Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run Semgrep CI
+      uses: semgrep/semgrep-action@v1
+      with:
+        auditOnFailure: false

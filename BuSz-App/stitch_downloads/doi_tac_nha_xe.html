@@ -1,0 +1,477 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Bus Partners Directory | Intercity Velocity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#d3e4fe",
+                    "primary-container": "#0061ff",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#0052dc",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-high": "#dce9ff",
+                    "tertiary-container": "#008038",
+                    "primary-fixed": "#dbe1ff",
+                    "secondary-fixed": "#ffdbcc",
+                    "outline-variant": "#c2c6d9",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-secondary-fixed": "#351000",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#eff4ff",
+                    "on-tertiary-container": "#ceffd0",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "inverse-surface": "#213145",
+                    "on-tertiary-fixed": "#002109",
+                    "on-secondary-container": "#572000",
+                    "secondary": "#a04100",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-container": "#f1f2ff",
+                    "tertiary": "#00642a",
+                    "outline": "#737687",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "on-surface-variant": "#424656",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed": "#6bff8f",
+                    "primary": "#004bca",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#fe6b00",
+                    "surface-dim": "#cbdbf5",
+                    "on-background": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#ffb693"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .partner-card-shadow {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .partner-card-shadow:hover {
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">
+                Intercity Velocity
+            </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-outline-variant pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Search</a>
+<a class="text-on-surface-variant dark:text-outline-variant pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">My Bookings</a>
+<a class="text-on-surface-variant dark:text-outline-variant pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Help</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="font-label-md text-label-md text-primary dark:text-primary-fixed px-4 py-2 rounded-lg hover:bg-primary-container/10 transition-colors">Login</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-12">
+<!-- Header Section -->
+<section class="mb-12">
+<h1 class="font-headline-xl text-headline-xl mb-4">Our Premium Network</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                We partner with the world's most reliable bus operators to ensure your journey is safe, comfortable, and always on time.
+            </p>
+</section>
+<!-- Search & Filter Bar (Level 2 Card Style) -->
+<div class="bg-surface-container-lowest partner-card-shadow rounded-xl p-4 mb-12 border border-surface-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+<!-- Search Input -->
+<div class="md:col-span-5 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md bg-surface" placeholder="Search bus operators..." type="text">
+</div>
+<!-- Filter Group -->
+<div class="md:col-span-5 flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full border border-primary text-primary font-label-md bg-primary/5 hover:bg-primary/10 transition-colors">All Types</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-md hover:bg-surface-container-high transition-colors">Luxury</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-md hover:bg-surface-container-high transition-colors">Sleeper</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-md hover:bg-surface-container-high transition-colors">Limousine</button>
+</div>
+<!-- Sort Dropdown -->
+<div class="md:col-span-2 text-right">
+<select class="w-full py-3 px-4 rounded-lg border border-outline-variant font-label-md text-on-surface-variant bg-surface outline-none focus:border-primary">
+<option>Top Rated</option>
+<option>Popularity</option>
+<option>Partner Since</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Partners Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Partner Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl partner-card-shadow border border-surface-variant overflow-hidden flex flex-col transition-all duration-300">
+<div class="p-6 flex-grow">
+<div class="flex justify-between items-start mb-6">
+<div class="w-20 h-20 bg-surface-container rounded-xl overflow-hidden flex items-center justify-center p-2 border border-outline-variant">
+<img class="w-full h-full object-contain" data-alt="A minimalist high-contrast logo for a premium transportation company called Orion Express. The logo features a stylized silver comet tail against a deep blue circular emblem, exuding a sense of speed, reliability, and modern corporate elegance. The lighting is crisp and studio-quality, emphasizing clean lines and professional design standards for an intercity travel app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcD90SIXhyijFy45bocnNsy34TasiMhzdxiKKEY8NzzmzL6ohw-_eXzxMaEzIBL3MVscc3Ccbh7kPwXG6ChoVRSeb6ICgCwgINLkzBIg2aI9oB__WRUAtP73HLwXLsanShDg0wcCCQgaAEAICjmh2I6cSG_rxz1jfRvTi70m1MA-uEK_CRiyYqp2dLb4_E8s15tHqH6h4JasOi1f8UzJRmhPKm-DZPyWcUlrsNc64OHx2XdbY1heATiA">
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-headline-md">4.9</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">2.4k Reviews</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Orion Premium Express</h3>
+<div class="flex gap-2 mb-4">
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">Luxury</span>
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">Sleeper</span>
+</div>
+<div class="space-y-2 mb-6">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Top Routes</p>
+<ul class="space-y-1">
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                London to Edinburgh
+                            </li>
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                Paris to Amsterdam
+                            </li>
+</ul>
+</div>
+</div>
+<div class="px-6 pb-6 pt-0">
+<button class="w-full py-3 border border-primary text-primary font-label-md rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300">View Details</button>
+</div>
+</div>
+<!-- Partner Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl partner-card-shadow border border-surface-variant overflow-hidden flex flex-col transition-all duration-300">
+<div class="p-6 flex-grow">
+<div class="flex justify-between items-start mb-6">
+<div class="w-20 h-20 bg-surface-container rounded-xl overflow-hidden flex items-center justify-center p-2 border border-outline-variant">
+<img class="w-full h-full object-contain" data-alt="A sleek corporate logo for SwiftLink Transit. The logo features a minimalist geometric eagle wing in vibrant orange and dark grey, set against a pristine white background. The aesthetic is professional, modern, and suggests efficiency and rapid movement. High-end lighting and sharp focus highlight the sophisticated brand identity suitable for a top-tier bus operator directory." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSryG7R-_aFxkSas_uSQl7KXf7iwR5b29Wfb_0ntN-WjYoM037vJkuk-1oQCK7NToMzMyIZ7_DfWc3La_Fc3z4S8JfqeRIRzv2fDQxOgvEmKneOoeIhWEYBygNVx_Jx3K7xL2WQAcVbm13GTQqv4GcvKuv7InhrBBh_-f8wRt5MXt258wpP-4F3XyD2-Worp4O4JxHFxvnmvIuN3bJvD4KI7KQOeW3wzMJnHvGaV_isE4nbo_L7ffzBQ">
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-headline-md">4.7</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">1.8k Reviews</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">SwiftLink Transit</h3>
+<div class="flex gap-2 mb-4">
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">Limousine</span>
+</div>
+<div class="space-y-2 mb-6">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Top Routes</p>
+<ul class="space-y-1">
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                Berlin to Prague
+                            </li>
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                Vienna to Munich
+                            </li>
+</ul>
+</div>
+</div>
+<div class="px-6 pb-6 pt-0">
+<button class="w-full py-3 border border-primary text-primary font-label-md rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300">View Details</button>
+</div>
+</div>
+<!-- Partner Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl partner-card-shadow border border-surface-variant overflow-hidden flex flex-col transition-all duration-300">
+<div class="p-6 flex-grow">
+<div class="flex justify-between items-start mb-6">
+<div class="w-20 h-20 bg-surface-container rounded-xl overflow-hidden flex items-center justify-center p-2 border border-outline-variant">
+<img class="w-full h-full object-contain" data-alt="A professional and reliable logo for SilverLine Coach Services. The design incorporates a stylized highway vanishing into the horizon within a silver hexagonal frame. The colors are deep forest green and polished silver, conveying a sense of safety, endurance, and premium service. The logo is presented in a bright, airy setting that reflects a high-reliability travel platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtJP-lR6SibkR7SZrNnJCDU__x1Bd-CUL_WdyTD-D_oNQwDdoR91rjtua_eiUPJFcNs8Ir_AfVD5PWTpRPMm_x3XFPLz73GCWWAhc1N1QsJLxUCmWvs-9_Da-6yghdVwOJEa8ZzvYTXRy4qRB4qh4tr2LwNsm4ZD7nIS4v4kSCr_u2wMNNaCgC6KEP6AivZ_jGmje9g_WwQLT7kKG5HF3q5C5OHpZrjoIq7MOA2zzIDC18ox-B6BMPnQ">
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-headline-md">4.5</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">3.1k Reviews</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">SilverLine Coaches</h3>
+<div class="flex gap-2 mb-4">
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">Luxury</span>
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">Executive</span>
+</div>
+<div class="space-y-2 mb-6">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Top Routes</p>
+<ul class="space-y-1">
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                Madrid to Barcelona
+                            </li>
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                Lisbon to Seville
+                            </li>
+</ul>
+</div>
+</div>
+<div class="px-6 pb-6 pt-0">
+<button class="w-full py-3 border border-primary text-primary font-label-md rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300">View Details</button>
+</div>
+</div>
+<!-- Partner Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl partner-card-shadow border border-surface-variant overflow-hidden flex flex-col transition-all duration-300">
+<div class="p-6 flex-grow">
+<div class="flex justify-between items-start mb-6">
+<div class="w-20 h-20 bg-surface-container rounded-xl overflow-hidden flex items-center justify-center p-2 border border-outline-variant">
+<img class="w-full h-full object-contain" data-alt="A modern and friendly logo for Cloud9 Sleepers. The design features a minimalist white cloud silhouette overlaid with a stylized blue '9' that resembles a winding road. The background is a soft, sky-blue gradient. The overall look is calming and emphasizes comfort and sleep, aligning with a premium sleeper bus service. Shot with high-key lighting for a clean, professional finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdyaosa5nvTKAtaUzHSBDbE1xjYaMhoLcixhLXWOJPM6dKo21Fs3xKJD2rn7ZVrqpkhi6cYW12-5qS28qom3HPxSj1cuobC6Qx3SeBByjxKC9zb38Vr898R73IufNpQVjIYeAAPfq50j7vWRzlbDkb9qmhE-Eq2yOw_8kMJ7T9g7T-FvM0KLCJ6YmW9A601IbSOhL2du8sfCnVFXZmFg3bSYifgOpbXLJEDt30TNlJ9nxzIBzKN2OoLw">
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-headline-md">4.8</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">950 Reviews</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Cloud9 Sleepers</h3>
+<div class="flex gap-2 mb-4">
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">Sleeper</span>
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">VIP</span>
+</div>
+<div class="space-y-2 mb-6">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Top Routes</p>
+<ul class="space-y-1">
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                Milan to Rome
+                            </li>
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                Naples to Florence
+                            </li>
+</ul>
+</div>
+</div>
+<div class="px-6 pb-6 pt-0">
+<button class="w-full py-3 border border-primary text-primary font-label-md rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300">View Details</button>
+</div>
+</div>
+<!-- Partner Card 5 -->
+<div class="group bg-surface-container-lowest rounded-xl partner-card-shadow border border-surface-variant overflow-hidden flex flex-col transition-all duration-300">
+<div class="p-6 flex-grow">
+<div class="flex justify-between items-start mb-6">
+<div class="w-20 h-20 bg-surface-container rounded-xl overflow-hidden flex items-center justify-center p-2 border border-outline-variant">
+<img class="w-full h-full object-contain" data-alt="An authoritative and professional logo for TransEuro Interlink. The logo features two interlocking circles in royal blue and slate grey, symbolizing connection and synergy. The design is bold and minimalist, set against a high-reliability white background. The clean, crisp execution emphasizes the company's status as a major player in the European intercity bus network." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc_e6kEl3kGtC3kAHo_PFDQTBC63zLwg5zx8fREYJzJoGyEIENbQITrQDmvgwPTSFxcdFNcFjmkr5rlZ-2RFq7xFSAUHX1ZxJuXpsy9wf68r69YAocBsw6cgbi6Scz72_fKt-OuTktVSmT5kPdGzFYPOL2YekJcVLUMrorItiXBH031IpGEPbf3DGUkWc_U-U8mz-VZf1bKE0G5PcCQ8PB5JsQvATZQty0Ip2OB_0yMQTuDj_nz0VdrA">
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-headline-md">4.6</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">4.2k Reviews</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">TransEuro Interlink</h3>
+<div class="flex gap-2 mb-4">
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">Standard</span>
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">Executive</span>
+</div>
+<div class="space-y-2 mb-6">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Top Routes</p>
+<ul class="space-y-1">
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                Paris to Lyon
+                            </li>
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                Brussels to Luxembourg
+                            </li>
+</ul>
+</div>
+</div>
+<div class="px-6 pb-6 pt-0">
+<button class="w-full py-3 border border-primary text-primary font-label-md rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300">View Details</button>
+</div>
+</div>
+<!-- Partner Card 6 -->
+<div class="group bg-surface-container-lowest rounded-xl partner-card-shadow border border-surface-variant overflow-hidden flex flex-col transition-all duration-300">
+<div class="p-6 flex-grow">
+<div class="flex justify-between items-start mb-6">
+<div class="w-20 h-20 bg-surface-container rounded-xl overflow-hidden flex items-center justify-center p-2 border border-outline-variant">
+<img class="w-full h-full object-contain" data-alt="A sophisticated and luxurious logo for Velvet Road Limousines. The logo uses a script 'V' integrated with a smooth road curve, rendered in a rich metallic gold and deep burgundy. The aesthetic is high-end, exclusive, and refined. The presentation is clean and minimalist, focusing on the brand's commitment to ultra-comfortable and premium travel experiences." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe5nJt7SkJwpczP4YjfluB9vVxFHn4bKV94zPO7FE4JLXhpaQt7PyXnYi_39S6gR-10d--Uc_w6tiK-5LJjXmZZbJG-ikkBOdFC_ytOqfcsvCDcf0E4renNT2cUdwNq_WJTTVxbVcJ9red_kfAppED4X9ai1l1qTq0mi6u8raa5luk3KblQrlqXILjiqsrSnBIPorNoWqVTXIpBjBFQqLuuCKYUio4WybxqkFy0wzQ35GeSuMDPlo1XA">
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-headline-md">5.0</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">520 Reviews</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Velvet Road Limousines</h3>
+<div class="flex gap-2 mb-4">
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">Limousine</span>
+<span class="px-2 py-0.5 bg-tertiary/10 text-tertiary font-label-sm rounded border border-tertiary/20">Luxury</span>
+</div>
+<div class="space-y-2 mb-6">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Top Routes</p>
+<ul class="space-y-1">
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                Zurich to Geneva
+                            </li>
+<li class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary scale-75">route</span>
+                                London to Brighton
+                            </li>
+</ul>
+</div>
+</div>
+<div class="px-6 pb-6 pt-0">
+<button class="w-full py-3 border border-primary text-primary font-label-md rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300">View Details</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex justify-center items-center gap-4">
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary font-label-md">1</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant hover:bg-surface-container font-label-md transition-colors">2</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant hover:bg-surface-container font-label-md transition-colors">3</button>
+<span class="w-10 h-10 flex items-center justify-center">...</span>
+<button class="w-10 h-10 rounded-lg border border-outline-variant hover:bg-surface-container font-label-md transition-colors">12</button>
+</div>
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline full-width mt-24">
+<div class="w-full px-gutter py-12 max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed mb-4">Intercity Velocity</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant">© 2024 Intercity Velocity. Reliable intercity travel.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 text-on-surface dark:text-inverse-on-surface uppercase tracking-wider">Company</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">About Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">Terms of Service</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 text-on-surface dark:text-inverse-on-surface uppercase tracking-wider">Support</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">Contact Support</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">Help Center</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 text-on-surface dark:text-inverse-on-surface uppercase tracking-wider">Partners</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-primary dark:text-primary-fixed-dim font-bold active:underline" href="#">Bus Partners</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">Become a Partner</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script>
+        // Simple search interactivity
+        const searchInput = document.querySelector('input[type="text"]');
+        const partnerCards = document.querySelectorAll('.group.bg-surface-container-lowest');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            partnerCards.forEach(card => {
+                const name = card.querySelector('h3').textContent.toLowerCase();
+                if (name.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Simple filter button highlight toggle
+        const filterButtons = document.querySelectorAll('button.rounded-full');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary/5', 'text-primary', 'border-primary');
+                    b.classList.add('border-outline-variant', 'text-on-surface-variant');
+                });
+                btn.classList.add('bg-primary/5', 'text-primary', 'border-primary');
+                btn.classList.remove('border-outline-variant', 'text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

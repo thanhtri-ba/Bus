@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ffb693",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c2c6d9",
+                        "background": "#f8f9ff",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "tertiary": "#00642a",
+                        "surface-dim": "#cbdbf5",
+                        "on-secondary-fixed": "#351000",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e5eeff",
+                        "on-surface": "#0b1c30",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-secondary-fixed-variant": "#7a3000",
+                        "secondary": "#a04100",
+                        "secondary-fixed": "#ffdbcc",
+                        "outline": "#737687",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#0061ff",
+                        "surface": "#f8f9ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-high": "#dce9ff",
+                        "secondary-container": "#fe6b00",
+                        "on-background": "#0b1c30",
+                        "primary": "#004bca",
+                        "on-tertiary-container": "#ceffd0",
+                        "surface-tint": "#0052dc",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#572000",
+                        "primary-fixed": "#dbe1ff",
+                        "on-tertiary-fixed": "#002109",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#008038",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-fixed": "#6bff8f",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary-fixed": "#00174b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "on-surface-variant": "#424656",
+                        "on-primary-container": "#f1f2ff",
+                        "inverse-surface": "#213145"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "base": "8px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .star-rating .star:hover,
+        .star-rating .star.active {
+            color: #fe6b00; /* secondary-container */
+            font-variation-settings: 'FILL' 1;
+        }
+        .bento-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm docked full-width top-0 z-50">
+<nav class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Intercity Velocity</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-outline-variant pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="#">Search</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 font-label-md text-label-md" href="#">My Bookings</a>
+<a class="text-on-surface-variant dark:text-outline-variant pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="#">Help</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md hover:opacity-80 transition-all duration-200">Login</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter py-8 md:py-12">
+<div class="max-w-4xl mx-auto">
+<!-- Header Section -->
+<div class="mb-8 text-center md:text-left">
+<h1 class="font-headline-lg text-headline-lg mb-2">Đánh giá chuyến đi của bạn</h1>
+<p class="text-on-surface-variant font-body-md">Cảm ơn bạn đã đồng hành cùng Intercity Velocity. Phản hồi của bạn giúp chúng tôi nâng cao chất lượng dịch vụ.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Left Column: Trip Summary -->
+<aside class="md:col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant shadow-sm bento-card">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">directions_bus</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md leading-tight">Intercity Elite</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Mã chuyến: #IV-88291</p>
+</div>
+</div>
+<div class="space-y-4 border-t border-outline-variant pt-4 mt-4">
+<div class="flex items-start gap-3">
+<div class="flex flex-col items-center mt-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-0.5 h-8 bg-outline-variant"></div>
+<div class="w-2 h-2 rounded-full border-2 border-primary bg-surface"></div>
+</div>
+<div class="flex flex-col gap-4">
+<div>
+<p class="font-label-md text-label-md text-on-surface">TP. Hồ Chí Minh</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">08:00 • 20 Th10, 2024</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Đà Lạt</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">14:30 • 20 Th10, 2024</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant">
+<div class="flex justify-between items-center">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Ghế của bạn:</span>
+<span class="font-label-md text-label-md text-primary">A12, A13</span>
+</div>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden h-48 border border-outline-variant shadow-sm">
+<div class="w-full h-full bg-cover bg-center" data-alt="A clean, minimalist 3D isometric representation of a highway stretching through a lush green valley under a soft blue sky. The visual style is modern, professional, and corporate, using a bright palette of blues and greens to evoke a sense of safety and efficiency." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDPDiOWKTymfR3sjl7WJ7flyLmUL_NeEDG-rVQsytcfvzVWscSvNtU4vsnko_Um3hnV7l3SVkSN4p5wCl10AyAg_-OeR00y0yPVCZGaS0tknTr07RkPNBzMXFp1jW3qZ96DeAaLrtEAxRcddmRUlZ2v9Skx6S6sMq2zovRnI8AsdxSTDgJ0mQpRaZ-l2e-Okq90WsJXE_eWOPkGRbLQPfgO3Op3LKSq8pQqJeqVQXfsvW2MA-FEMQ5iXA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+<p class="text-white font-label-md text-label-md">Hành trình 310km an toàn</p>
+</div>
+</div>
+</aside>
+<!-- Right Column: Review Form -->
+<div class="md:col-span-8">
+<form class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant shadow-md space-y-8" id="review-form">
+<!-- Rating Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<!-- Quality -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary scale-90">airline_seat_recline_extra</span>
+                                    Chất lượng xe
+                                </label>
+<div class="star-rating flex gap-1" data-category="quality">
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="1">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="2">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="3">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="4">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="5">star</span>
+</div>
+</div>
+<!-- Driver -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary scale-90">badge</span>
+                                    Thái độ tài xế
+                                </label>
+<div class="star-rating flex gap-1" data-category="driver">
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="1">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="2">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="3">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="4">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="5">star</span>
+</div>
+</div>
+<!-- Punctuality -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary scale-90">schedule</span>
+                                    Đúng giờ
+                                </label>
+<div class="star-rating flex gap-1" data-category="punctual">
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="1">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="2">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="3">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="4">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="5">star</span>
+</div>
+</div>
+<!-- Cleanliness -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary scale-90">cleaning_services</span>
+                                    Sạch sẽ
+                                </label>
+<div class="star-rating flex gap-1" data-category="clean">
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="1">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="2">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="3">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="4">star</span>
+<span class="star material-symbols-outlined cursor-pointer text-outline-variant text-3xl" data-value="5">star</span>
+</div>
+</div>
+</div>
+<!-- Textarea -->
+<div class="space-y-3">
+<label class="font-label-md text-label-md text-on-surface-variant" for="comments">Nhận xét chi tiết</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl p-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-outline-variant font-body-md" id="comments" placeholder="Chia sẻ thêm về trải nghiệm của bạn (ví dụ: tiện nghi, trạm dừng, lái xe an toàn...)" rows="5"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="w-full bg-secondary-container text-white py-4 rounded-xl font-headline-md text-headline-md hover:bg-secondary transition-colors shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2" type="submit">
+                                Gửi đánh giá
+                                <span class="material-symbols-outlined">send</span>
+</button>
+<p class="text-center text-body-sm font-body-sm text-on-surface-variant mt-4">
+                                Phản hồi của bạn sẽ được hiển thị công khai để giúp đỡ những hành khách khác.
+                            </p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline mt-auto">
+<div class="w-full px-gutter py-12 max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-1">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Intercity Velocity</span>
+<p class="mt-4 text-on-surface-variant dark:text-outline-variant font-body-sm text-body-sm">© 2024 Intercity Velocity. Reliable intercity travel.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-on-surface mb-4">Company</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">About Us</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">Bus Partners</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-on-surface mb-4">Support</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">Contact Support</a></li>
+<li><a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface dark:text-inverse-on-surface mb-4">Privacy</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant dark:text-outline-variant font-label-sm text-label-sm hover:text-secondary dark:hover:text-secondary-fixed transition-colors active:underline" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Star Rating Interactivity
+        document.querySelectorAll('.star-rating').forEach(ratingGroup => {
+            const stars = ratingGroup.querySelectorAll('.star');
+            
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    const value = parseInt(star.getAttribute('data-value'));
+                    stars.forEach((s, index) => {
+                        if (index < value) {
+                            s.classList.add('active');
+                            s.style.fontVariationSettings = "'FILL' 1";
+                        } else {
+                            s.classList.remove('active');
+                            s.style.fontVariationSettings = "'FILL' 0";
+                        }
+                    });
+                });
+
+                star.addEventListener('mouseover', () => {
+                    const value = parseInt(star.getAttribute('data-value'));
+                    stars.forEach((s, index) => {
+                        if (index < value) {
+                            s.style.color = '#fe6b00';
+                            s.style.fontVariationSettings = "'FILL' 1";
+                        }
+                    });
+                });
+
+                star.addEventListener('mouseout', () => {
+                    stars.forEach((s) => {
+                        if (!s.classList.contains('active')) {
+                            s.style.color = '';
+                            s.style.fontVariationSettings = "'FILL' 0";
+                        }
+                    });
+                });
+            });
+        });
+
+        // Form Submit Simulation
+        document.getElementById('review-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Đang gửi...';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Đã gửi thành công!';
+                btn.classList.replace('bg-secondary-container', 'bg-tertiary-container');
+                
+                setTimeout(() => {
+                    alert('Cảm ơn bạn đã gửi đánh giá!');
+                    btn.disabled = false;
+                    btn.innerHTML = originalContent;
+                    btn.classList.replace('bg-tertiary-container', 'bg-secondary-container');
+                    e.target.reset();
+                    document.querySelectorAll('.star').forEach(s => {
+                        s.classList.remove('active');
+                        s.style.fontVariationSettings = "'FILL' 0";
+                    });
+                }, 1500);
+            }, 2000);
+        });
+    </script>
+</body></html>

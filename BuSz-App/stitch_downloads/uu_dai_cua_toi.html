@@ -1,0 +1,429 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Intercity Velocity - Phần thưởng &amp; Ưu đãi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dbe1ff",
+                    "secondary-fixed-dim": "#ffb693",
+                    "on-secondary-container": "#572000",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-primary-fixed": "#00174b",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#b4c5ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "secondary-container": "#fe6b00",
+                    "primary-container": "#0061ff",
+                    "on-background": "#0b1c30",
+                    "on-tertiary-fixed": "#002109",
+                    "on-surface": "#0b1c30",
+                    "surface-tint": "#0052dc",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "on-secondary-fixed": "#351000",
+                    "on-primary-container": "#f1f2ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-container-high": "#dce9ff",
+                    "secondary-fixed": "#ffdbcc",
+                    "outline-variant": "#c2c6d9",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#cbdbf5",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "surface": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "tertiary-container": "#008038",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ceffd0",
+                    "surface-container-low": "#eff4ff",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#213145",
+                    "primary": "#004bca",
+                    "tertiary-fixed": "#6bff8f",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f8f9ff",
+                    "on-secondary": "#ffffff",
+                    "outline": "#737687",
+                    "on-surface-variant": "#424656",
+                    "background": "#f8f9ff",
+                    "secondary": "#a04100",
+                    "tertiary": "#00642a",
+                    "primary-fixed-dim": "#b4c5ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "base": "8px",
+                    "margin-desktop": "32px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .card-elevation {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        .tier-progress-gradient {
+            background: linear-gradient(90deg, #0061ff 0%, #fe6b00 100%);
+        }
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        .shine-anim::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(-25deg);
+            animation: shine 3s infinite;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md">
+<!-- Top Navigation Bar -->
+<header class="bg-surface sticky top-0 z-50 shadow-sm">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="font-headline-md text-headline-md font-bold text-primary">Intercity Velocity</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-1 font-label-md" href="#">Search</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-1 font-label-md" href="#">My Bookings</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md" href="#">Help</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md hover:opacity-90 transition-all">Login</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-8 md:py-12">
+<!-- Hero Reward Section -->
+<div class="mb-12">
+<h1 class="font-headline-lg text-headline-lg mb-6">Phần thưởng &amp; Ưu đãi của tôi</h1>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Loyalty Points Card -->
+<div class="lg:col-span-2 relative overflow-hidden bg-primary-container rounded-xl p-8 text-on-primary-container card-elevation shine-anim">
+<div class="relative z-10 flex flex-col md:flex-row justify-between md:items-center gap-6">
+<div>
+<p class="font-label-md uppercase tracking-wider opacity-90 mb-2">Số dư Velocity Rewards</p>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl">2.450</span>
+<span class="font-body-lg text-body-lg opacity-80">điểm</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<button class="bg-surface-container-lowest text-primary px-6 py-3 rounded-lg font-label-md hover:bg-white transition-colors">Đổi quà ngay</button>
+<p class="text-sm opacity-70 italic">500 điểm sẽ hết hạn vào 31/12/2024</p>
+</div>
+</div>
+<!-- Abstract Background Shape -->
+<div class="absolute -right-20 -bottom-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+<!-- Tier Progress Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 card-elevation border border-outline-variant">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Hạng thành viên</p>
+<h3 class="font-headline-md text-headline-md text-secondary">Hạng Bạc</h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="mb-4">
+<div class="flex justify-between font-label-sm mb-2">
+<span>Tiến trình đến Hạng Vàng</span>
+<span class="font-bold text-primary">75%</span>
+</div>
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden">
+<div class="tier-progress-gradient h-full rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<p class="font-body-sm text-on-surface-variant">Bạn cần thêm <span class="font-bold text-on-surface">550 điểm</span> nữa để nâng cấp.</p>
+</div>
+</div>
+</div>
+<!-- Vouchers Section -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md">Mã giảm giá khả dụng</h2>
+<a class="text-primary font-label-md hover:underline" href="#">Xem tất cả</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Voucher Card 1 -->
+<div class="flex bg-white rounded-xl overflow-hidden card-elevation border border-outline-variant">
+<div class="w-24 bg-secondary flex flex-col items-center justify-center p-4 text-on-secondary relative">
+<span class="font-headline-md text-headline-md">15%</span>
+<span class="font-label-sm text-center">GIẢM</span>
+<div class="absolute top-1/2 -left-2 w-4 h-4 bg-surface rounded-full -translate-y-1/2"></div>
+<div class="absolute top-1/2 -right-2 w-4 h-4 bg-surface rounded-full -translate-y-1/2"></div>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-between">
+<div>
+<h4 class="font-label-md text-on-surface line-clamp-1">Ưu đãi chuyến đầu tiên</h4>
+<p class="text-xs text-on-surface-variant">Hết hạn: 15 Th10 2024</p>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 px-2 py-2 border border-primary text-primary rounded-lg font-label-sm hover:bg-primary-fixed transition-colors flex items-center justify-center gap-1" onclick="copyCode(this, 'VELO15')">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                VELO15
+                            </button>
+<button class="flex-1 px-2 py-2 bg-secondary text-on-secondary rounded-lg font-label-sm hover:opacity-90 transition-colors">Dùng ngay</button>
+</div>
+</div>
+</div>
+<!-- Voucher Card 2 -->
+<div class="flex bg-white rounded-xl overflow-hidden card-elevation border border-outline-variant">
+<div class="w-24 bg-primary flex flex-col items-center justify-center p-4 text-on-primary relative">
+<span class="font-headline-md text-headline-md">50k</span>
+<span class="font-label-sm text-center">GIẢM</span>
+<div class="absolute top-1/2 -left-2 w-4 h-4 bg-surface rounded-full -translate-y-1/2"></div>
+<div class="absolute top-1/2 -right-2 w-4 h-4 bg-surface rounded-full -translate-y-1/2"></div>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-between">
+<div>
+<h4 class="font-label-md text-on-surface line-clamp-1">Khách hàng thân thiết</h4>
+<p class="text-xs text-on-surface-variant">Hết hạn: 20 Th10 2024</p>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 px-2 py-2 border border-primary text-primary rounded-lg font-label-sm hover:bg-primary-fixed transition-colors flex items-center justify-center gap-1" onclick="copyCode(this, 'LOYAL50')">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                LOYAL50
+                            </button>
+<button class="flex-1 px-2 py-2 bg-secondary text-on-secondary rounded-lg font-label-sm hover:opacity-90 transition-colors">Dùng ngay</button>
+</div>
+</div>
+</div>
+<!-- Voucher Card 3 -->
+<div class="flex bg-white rounded-xl overflow-hidden card-elevation border border-outline-variant">
+<div class="w-24 bg-tertiary flex flex-col items-center justify-center p-4 text-on-tertiary relative">
+<span class="font-headline-md text-headline-md">FREE</span>
+<span class="font-label-sm text-center">BỮA ĂN</span>
+<div class="absolute top-1/2 -left-2 w-4 h-4 bg-surface rounded-full -translate-y-1/2"></div>
+<div class="absolute top-1/2 -right-2 w-4 h-4 bg-surface rounded-full -translate-y-1/2"></div>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-between">
+<div>
+<h4 class="font-label-md text-on-surface line-clamp-1">Suất ăn nhẹ miễn phí</h4>
+<p class="text-xs text-on-surface-variant">Hết hạn: 30 Th11 2024</p>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 px-2 py-2 border border-primary text-primary rounded-lg font-label-sm hover:bg-primary-fixed transition-colors flex items-center justify-center gap-1" onclick="copyCode(this, 'SNACKFREE')">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                SNACKFREE
+                            </button>
+<button class="flex-1 px-2 py-2 bg-secondary text-on-secondary rounded-lg font-label-sm hover:opacity-90 transition-colors">Dùng ngay</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Points History Section -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md">Lịch sử tích lũy &amp; Sử dụng</h2>
+<div class="flex gap-2">
+<button class="px-4 py-1 rounded-full bg-primary-container text-primary font-label-sm">Tất cả</button>
+<button class="px-4 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm">Đã nhận</button>
+<button class="px-4 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm">Đã dùng</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Ngày giao dịch</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Hoạt động</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant">Mã chuyến</th>
+<th class="px-6 py-4 font-label-md text-on-surface-variant text-right">Số điểm</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-body-sm">12 Th09, 2024</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-container/20 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+</div>
+<div>
+<p class="font-label-md">Hoàn tất chuyến đi</p>
+<p class="text-xs text-on-surface-variant">Hà Nội - Đà Nẵng</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm text-primary">#IVL-29031</td>
+<td class="px-6 py-4 text-right font-bold text-tertiary">+150</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-body-sm">05 Th09, 2024</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container/20 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">remove_circle</span>
+</div>
+<div>
+<p class="font-label-md">Đổi mã giảm giá</p>
+<p class="text-xs text-on-surface-variant">Voucher 50k - Chuyến đêm</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm text-primary">#IVL-00921</td>
+<td class="px-6 py-4 text-right font-bold text-error">-500</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-body-sm">28 Th08, 2024</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-container/20 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div>
+<p class="font-label-md">Thưởng thăng hạng Bạc</p>
+<p class="text-xs text-on-surface-variant">Cảm ơn bạn đã đồng hành</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm text-primary">-</td>
+<td class="px-6 py-4 text-right font-bold text-tertiary">+300</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4 font-body-sm">15 Th08, 2024</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-container/20 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+</div>
+<div>
+<p class="font-label-md">Hoàn tất chuyến đi</p>
+<p class="text-xs text-on-surface-variant">Sài Gòn - Đà Lạt</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-sm text-primary">#IVL-11029</td>
+<td class="px-6 py-4 text-right font-bold text-tertiary">+80</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-outline-variant bg-surface-container-low text-center">
+<button class="text-primary font-label-md hover:underline">Xem thêm lịch sử</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant mt-20">
+<div class="w-full px-gutter py-12 max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-4">Intercity Velocity</div>
+<p class="font-body-sm text-on-surface-variant">© 2024 Intercity Velocity. Dịch vụ vận chuyển liên tỉnh tin cậy.</p>
+</div>
+<div>
+<h5 class="font-label-md mb-4 uppercase">Về chúng tôi</h5>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Về Intercity</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Đối tác nhà xe</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Tuyển dụng</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md mb-4 uppercase">Hỗ trợ</h5>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Trung tâm hỗ trợ</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Liên hệ</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Câu hỏi thường gặp</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md mb-4 uppercase">Pháp lý</h5>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Điều khoản dịch vụ</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Chính sách bảo mật</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<!-- Mobile Nav Bar -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface shadow-[0_-2px_10px_rgba(0,0,0,0.05)] z-50 flex justify-around items-center h-16 border-t border-outline-variant">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-label-sm">Tìm kiếm</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="text-[10px] font-label-sm">Đặt chỗ</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">card_giftcard</span>
+<span class="text-[10px] font-label-sm">Ưu đãi</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-sm">Tài khoản</span>
+</a>
+</div>
+<script>
+        function copyCode(btn, code) {
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = `<span class="material-symbols-outlined text-sm">check</span> Đã chép`;
+                btn.classList.add('bg-tertiary-container', 'text-on-tertiary-container', 'border-tertiary-container');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('bg-tertiary-container', 'text-on-tertiary-container', 'border-tertiary-container');
+                }, 2000);
+            });
+        }
+    </script>
+</body></html>

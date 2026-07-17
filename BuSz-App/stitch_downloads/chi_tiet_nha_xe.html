@@ -1,0 +1,516 @@
+<!DOCTYPE html><html class="light" lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Intercity Velocity - Nhà Xe Intercity Elite</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#00642a",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "outline": "#737687",
+                        "on-surface-variant": "#424656",
+                        "background": "#f8f9ff",
+                        "secondary": "#a04100",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#6bff8f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#213145",
+                        "primary": "#004bca",
+                        "surface-container-low": "#eff4ff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#ceffd0",
+                        "tertiary-container": "#008038",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "on-secondary-fixed-variant": "#7a3000",
+                        "surface": "#f8f9ff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-dim": "#cbdbf5",
+                        "outline-variant": "#c2c6d9",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#ffdbcc",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-container": "#f1f2ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "on-secondary-fixed": "#351000",
+                        "surface-tint": "#0052dc",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-fixed": "#002109",
+                        "secondary-container": "#fe6b00",
+                        "primary-container": "#0061ff",
+                        "on-background": "#0b1c30",
+                        "inverse-on-surface": "#eaf1ff",
+                        "inverse-primary": "#b4c5ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "on-primary-fixed": "#00174b",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary-fixed-dim": "#ffb693",
+                        "on-secondary-container": "#572000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "32px",
+                        "container-max": "1200px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-shadow-l2 {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .custom-shadow-l3 {
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">directions_bus</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Intercity Velocity</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-outline-variant pb-1 font-label-md text-label-md hover:text-primary transition-colors" href="#">Search</a>
+<a class="text-on-surface-variant dark:text-outline-variant pb-1 font-label-md text-label-md hover:text-primary transition-colors" href="#">My Bookings</a>
+<a class="text-on-surface-variant dark:text-outline-variant pb-1 font-label-md text-label-md hover:text-primary transition-colors" href="#">Help</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:opacity-90 transition-all">Login</button>
+</nav>
+<button class="md:hidden p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-8 space-y-12">
+<!-- Hero Section: Operator Profile -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+<div class="lg:col-span-2 space-y-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<nav class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm mb-2">
+<span>Operators</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">Intercity Elite</span>
+</nav>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Intercity Elite</h1>
+<div class="flex items-center gap-4 mt-2">
+<div class="flex items-center gap-1 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.9 / 5.0</span>
+</div>
+<span class="text-on-surface-variant font-body-sm text-body-sm">(2,450 Verified Reviews)</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 border border-outline px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">share</span>
+                            Share
+                        </button>
+<button class="flex items-center gap-2 border border-outline px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+                            Save
+                        </button>
+</div>
+</div>
+<!-- Bento Fleet Gallery -->
+<div class="grid grid-cols-4 grid-rows-2 gap-4 h-[400px]">
+<div class="col-span-2 row-span-2 relative overflow-hidden rounded-xl bg-surface-container-high group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A professional high-angle shot of a sleek, modern premium intercity bus parked in a clean terminal. The bus is painted in Intercity Elite's signature navy and silver livery with large tinted windows. The scene is bathed in warm afternoon sunlight, emphasizing the vehicle's aerodynamic design and metallic finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxk_1PPaOeI9xll_TG_ARmUwSZ-qUiBj0XDr_Jl1lVng5_9zab5Nf5q5u529q6xyt7dD6QuPI1BFM6NscLZ3YIMoZsousvIQLBMdmvQlD_nkne-bXII4ik4R2nn1N8xdlsLQizJgvFriK4xy3LMhceurW-zmFmkSIZFv8bpnod6x7ZIqhnqTVNUj6zSUUQQCfR-v0kelXlAjCtGVkNt70umZGpbxRP0C-_Gz8fMPxbKzJB1yn-a4r2cQ">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+</div>
+<div class="col-span-2 relative overflow-hidden rounded-xl bg-surface-container-high group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="An interior shot of a luxury intercity bus cabin featuring spacious, ergonomically designed leather seats in a clean cream color. Each seat has an individual entertainment screen and soft ambient blue LED lighting running along the floor and ceiling. The atmosphere is quiet, professional, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUkDaOB4HQXHaHtOe7xDRdFOmR5oUloEOAZgjiBLvRT0gUczddxCjYeq8G6REwvBtRKGO8tuOU9S-GYxwd2EkmE4gJQmxsXFheHzNGwZURfEcsHC6CCXyJZ3EdiOCRTuCoBMo7tDgCVI4SlxM_9evxQEp-t8C7yngrEp4SeVWZf-YPFr8zB3Er0KpwFKYrjP3v6deiODweHV4ZTLady18kCrMftrHTeUxtBiY0aUv6BriiDBe_0zg_fQ">
+</div>
+<div class="relative overflow-hidden rounded-xl bg-surface-container-high group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A close-up photograph of a bus driver in a professional uniform, smiling confidently next to the steering wheel of a modern bus. The dashboard is digital and brightly lit, showing navigation maps and vehicle status. The lighting is bright and clear, conveying safety and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM3oswKOn4x1LPeJ0gm3XYZOcQgGjMg-s6Pb_cUdgdlBpXZiwEvPWSMdc21o177T6coyviopxxr2JtjF6xX5TAtRdGgG_Ooy3ohP7GpdWNCCbV_Ue-VA0mClDxQ-8fLhK4SP7SEv_wEp41yPbc54ZbfVUFRUgFRp4DUg6q-UKPovU6hYGdyv_VwKcoOXUO1eRpoQpwRHPflCUdJsUG6hm8qV2aSmr-X4fCVEh76yyy-Ppu2U2CUU4HcA">
+</div>
+<div class="relative overflow-hidden rounded-xl bg-surface-container-high group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-60" data-alt="A collage-style view showing the premium amenities of a luxury bus: a bottle of mineral water in a cup holder, a folded cold towel on a tray, and a smartphone showing a high-speed Wi-Fi connection. The style is clean and focused on detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-puQYNJjrPmpDxIh6bPHSQv22U4cC2vUas9DH784adSvFlCn1fGq3Ph8MSwaJUyMHTOR6Z6xK438XuVzAIJdzO25PqspN6iUtbXdVSq4oS4BQd6nMC_dc72ztYwmsN0hkQaz1SCEpW1dESeEa21e6HqXvnZ8rGUvseqC45xCEbRwzz1RqWdNCZu19lBHU5veFBJAHLqHVbXoSxB-xXMYLje7v4PiXPINqc1-khiqc6wLkVH8jAjkg-A">
+<div class="absolute inset-0 flex items-center justify-center text-on-primary font-label-md text-label-md bg-black/40">
+                            +12 Photos
+                        </div>
+</div>
+</div>
+</div>
+<!-- Booking Shortcut Card -->
+<aside class="bg-surface custom-shadow-l2 border border-outline-variant p-6 rounded-xl space-y-6 lg:sticky lg:top-24">
+<div class="space-y-1">
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Starting from</p>
+<p class="font-headline-lg text-headline-lg text-secondary">$25.00</p>
+</div>
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="font-label-md text-label-md">Origin</label>
+<div class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg bg-surface-container-lowest">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<input class="w-full border-none p-0 focus:ring-0 text-body-md" placeholder="Departure City" type="text">
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md">Destination</label>
+<div class="flex items-center gap-3 p-3 border border-outline-variant rounded-lg bg-surface-container-lowest">
+<span class="material-symbols-outlined text-primary">near_me</span>
+<input class="w-full border-none p-0 focus:ring-0 text-body-md" placeholder="Arrival City" type="text">
+</div>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container py-4 rounded-xl font-headline-md text-headline-md hover:brightness-95 transition-all shadow-md">
+                        Find Routes
+                    </button>
+</div>
+<div class="pt-4 border-t border-outline-variant space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">verified_user</span>
+<span class="text-body-sm font-body-sm">Official Partner Guarantee</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">event_available</span>
+<span class="text-body-sm font-body-sm">Flexible Cancellation Policy</span>
+</div>
+</div>
+</aside>
+</section>
+<!-- Main Info Content -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<div class="lg:col-span-2 space-y-12">
+<!-- Amenities Section -->
+<div class="space-y-6">
+<h2 class="font-headline-md text-headline-md flex items-center gap-3">
+<span class="w-2 h-8 bg-primary rounded-full"></span>
+                        Onboard Amenities
+                    </h2>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="p-6 bg-surface-container-low rounded-2xl flex flex-col items-center gap-3 text-center transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-3xl">wifi</span>
+</div>
+<span class="font-label-md text-label-md">Free High-Speed Wi-Fi</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-2xl flex flex-col items-center gap-3 text-center transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-3xl">local_drink</span>
+</div>
+<span class="font-label-md text-label-md">Complimentary Water</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-2xl flex flex-col items-center gap-3 text-center transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-3xl">dry_cleaning</span>
+</div>
+<span class="font-label-md text-label-md">Premium Cold Towels</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-2xl flex flex-col items-center gap-3 text-center transition-transform hover:-translate-y-1">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-3xl">usb</span>
+</div>
+<span class="font-label-md text-label-md">USB Charging Ports</span>
+</div>
+</div>
+</div>
+<!-- Routes Table -->
+<div class="space-y-6">
+<h2 class="font-headline-md text-headline-md flex items-center gap-3">
+<span class="w-2 h-8 bg-primary rounded-full"></span>
+                        Popular Routes
+                    </h2>
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Route</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Duration</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Frequency</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">Fare</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container transition-colors cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 font-label-md text-label-md">
+<span>New York</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+<span>Boston</span>
+</div>
+</td>
+<td class="px-6 py-5 text-body-sm text-on-surface-variant">4h 30m</td>
+<td class="px-6 py-5 text-body-sm text-on-surface-variant">Every 30 mins</td>
+<td class="px-6 py-5 font-bold text-primary">$32.00</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 font-label-md text-label-md">
+<span>Boston</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+<span>Washington DC</span>
+</div>
+</td>
+<td class="px-6 py-5 text-body-sm text-on-surface-variant">7h 15m</td>
+<td class="px-6 py-5 text-body-sm text-on-surface-variant">Daily (5 trips)</td>
+<td class="px-6 py-5 font-bold text-primary">$45.00</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 font-label-md text-label-md">
+<span>Philadelphia</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+<span>New York</span>
+</div>
+</td>
+<td class="px-6 py-5 text-body-sm text-on-surface-variant">2h 10m</td>
+<td class="px-6 py-5 text-body-sm text-on-surface-variant">Hourly</td>
+<td class="px-6 py-5 font-bold text-primary">$25.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Reviews Section -->
+<div class="space-y-8">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md flex items-center gap-3">
+<span class="w-2 h-8 bg-primary rounded-full"></span>
+                            Customer Experience
+                        </h2>
+<button class="text-primary font-label-md text-label-md hover:underline">Write a Review</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Review Card 1 -->
+<div class="p-6 bg-surface border border-outline-variant rounded-2xl space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold">JD</div>
+<div>
+<p class="font-label-md text-label-md">John Doe</p>
+<p class="text-on-surface-variant text-[12px]">Travelled on May 15, 2024</p>
+</div>
+</div>
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-body-sm italic">"Exceptional service. The Wi-Fi was actually fast enough to get some work done, and the seats are genuinely better than most airline economy cabins."</p>
+</div>
+<!-- Review Card 2 -->
+<div class="p-6 bg-surface border border-outline-variant rounded-2xl space-y-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-bold">AS</div>
+<div>
+<p class="font-label-md text-label-md">Alice Smith</p>
+<p class="text-on-surface-variant text-[12px]">Travelled on May 12, 2024</p>
+</div>
+</div>
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+</div>
+<p class="text-body-sm italic">"Punctual departure and very clean bus. The driver was helpful with luggage. Will definitely book again for my next commute."</p>
+</div>
+</div>
+<button class="w-full py-3 border-2 border-primary text-primary rounded-xl font-label-md text-label-md hover:bg-primary-container transition-colors">
+                        View All 2,450 Reviews
+                    </button>
+</div>
+<!-- FAQ Section -->
+<div class="space-y-6">
+<h2 class="font-headline-md text-headline-md flex items-center gap-3">
+<span class="w-2 h-8 bg-primary rounded-full"></span>
+                        Intercity Elite FAQs
+                    </h2>
+<div class="space-y-4">
+<details class="group bg-surface border border-outline-variant rounded-xl [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between p-4 cursor-pointer">
+<h3 class="font-label-md text-label-md">What is the luggage allowance?</h3>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-4 pb-4 text-body-sm text-on-surface-variant">
+                                Intercity Elite allows one large suitcase up to 25kg to be stored in the hold and one small personal item (backpack or handbag) to be carried onboard.
+                            </div>
+</details>
+<details class="group bg-surface border border-outline-variant rounded-xl [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between p-4 cursor-pointer">
+<h3 class="font-label-md text-label-md">How early should I arrive at the station?</h3>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-4 pb-4 text-body-sm text-on-surface-variant">
+                                We recommend arriving at least 20 minutes before your scheduled departure time to allow for boarding and luggage handling.
+                            </div>
+</details>
+<details class="group bg-surface border border-outline-variant rounded-xl [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between p-4 cursor-pointer">
+<h3 class="font-label-md text-label-md">Can I change my ticket after booking?</h3>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-4 pb-4 text-body-sm text-on-surface-variant">
+                                Yes, tickets can be modified up to 12 hours before departure. A small administrative fee may apply depending on your fare type.
+                            </div>
+</details>
+</div>
+</div>
+</div>
+<!-- Side Sidebar: Trust & Policies -->
+<div class="space-y-8">
+<div class="bg-surface-container-high p-6 rounded-2xl space-y-6">
+<h3 class="font-headline-md text-headline-md">Bus Operator Info</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">history</span>
+<div>
+<p class="font-label-md text-label-md">Operating Since</p>
+<p class="text-body-sm">2012 (12 Years)</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">airport_shuttle</span>
+<div>
+<p class="font-label-md text-label-md">Fleet Size</p>
+<p class="text-body-sm">85 Premium Coaches</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">language</span>
+<div>
+<p class="font-label-md text-label-md">Coverage</p>
+<p class="text-body-sm">15 Major Cities</p>
+</div>
+</div>
+</div>
+</div>
+<div class="border border-outline-variant p-6 rounded-2xl space-y-4">
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Safety First</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-body-sm">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            GPS Tracking Enabled
+                        </li>
+<li class="flex items-center gap-2 text-body-sm">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            CCTV Surveillance
+                        </li>
+<li class="flex items-center gap-2 text-body-sm">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Regular Maintenance Checks
+                        </li>
+</ul>
+</div>
+<div class="relative rounded-2xl overflow-hidden h-48 group">
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors z-10 flex items-center justify-center">
+<button class="bg-surface text-on-surface px-6 py-2 rounded-full font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined">map</span>
+                            View Station Map
+                        </button>
+</div>
+<div class="w-full h-full bg-cover bg-center" data-location="New York City" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBu_qYt4O4dEV0bAQj9KNYDLzzreBCWP2YwxPQoogT4eUgK74kfxmwQVm5Y_XUkLL4Ap4HJaAU0la8gC0M8EBZMS9bBTlHiFCzwzFZgh-lQOjqU7asVb6YquA9q-x1Sa5Edog26DWvPgF7sC8dBEYvSGsK4_BWdBjfE4QYLY1Y-jZowlfpdLaES2JXWcCJCg2MPdNV8n3FDqxUtrNOWCCSwqj4z6vpFMc7L0rqzoSWUvph_TsquVxDNHQ')"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline mt-12">
+<div class="w-full px-gutter py-12 max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">directions_bus</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Intercity Velocity</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 Intercity Velocity. Reliable intercity travel.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 uppercase">Company</h4>
+<ul class="space-y-2">
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">About Us</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">Bus Partners</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 uppercase">Legal</h4>
+<ul class="space-y-2">
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 uppercase">Support</h4>
+<ul class="space-y-2">
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">Contact Support</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">Help Center</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for FAQ details
+        document.querySelectorAll('details').forEach((el) => {
+            el.addEventListener('toggle', (e) => {
+                if (el.open) {
+                    document.querySelectorAll('details').forEach((other) => {
+                        if (other !== el) other.removeAttribute('open');
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>

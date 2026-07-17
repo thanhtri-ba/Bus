@@ -1,0 +1,406 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Checkout | Intercity Velocity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#d3e4fe",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "surface-dim": "#cbdbf5",
+                    "primary-fixed": "#dbe1ff",
+                    "on-surface-variant": "#424656",
+                    "outline": "#737687",
+                    "secondary-container": "#fe6b00",
+                    "on-surface": "#0b1c30",
+                    "tertiary": "#00642a",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#d3e4fe",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#00174b",
+                    "surface-container": "#e5eeff",
+                    "primary": "#004bca",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#c2c6d9",
+                    "on-background": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "inverse-surface": "#213145",
+                    "surface-bright": "#f8f9ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface": "#f8f9ff",
+                    "secondary-fixed": "#ffdbcc",
+                    "on-secondary-fixed": "#351000",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#a04100",
+                    "tertiary-container": "#008038",
+                    "surface-tint": "#0052dc",
+                    "tertiary-fixed": "#6bff8f",
+                    "surface-container-high": "#dce9ff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary-container": "#f1f2ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#ffb693",
+                    "on-secondary-container": "#572000",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "background": "#f8f9ff",
+                    "on-tertiary-fixed": "#002109",
+                    "on-tertiary-container": "#ceffd0",
+                    "inverse-primary": "#b4c5ff",
+                    "primary-container": "#0061ff",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "32px",
+                    "container-max": "1200px",
+                    "margin-mobile": "16px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .shadow-ambient {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .route-line {
+            position: relative;
+        }
+        .route-line::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            bottom: 8px;
+            width: 2px;
+            background-image: linear-gradient(to bottom, #004bca 50%, transparent 50%);
+            background-size: 2px 8px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<!-- Top Navigation Bar -->
+<header class="bg-surface sticky top-0 z-50 shadow-sm">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary">Intercity Velocity</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-label-md transition-colors hover:text-primary" href="#">Search</a>
+<a class="text-on-surface-variant font-label-md transition-colors hover:text-primary" href="#">My Bookings</a>
+<a class="text-on-surface-variant font-label-md transition-colors hover:text-primary" href="#">Help</a>
+</nav>
+<div class="flex items-center">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md hover:bg-primary-container transition-all">Login</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-8 md:py-12">
+<!-- Progress Stepper -->
+<div class="flex items-center justify-center mb-12 max-w-2xl mx-auto">
+<div class="flex flex-col items-center flex-1">
+<div class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-md text-on-surface">Search</span>
+</div>
+<div class="h-0.5 bg-tertiary-container flex-grow mb-8 mx-2"></div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-md text-on-surface">Info</span>
+</div>
+<div class="h-0.5 bg-primary flex-grow mb-8 mx-2"></div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center mb-2 border-4 border-primary-fixed">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="font-label-md text-primary font-bold">Payment</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Side: Order Summary -->
+<div class="lg:col-span-5 space-y-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Order Summary</h2>
+<!-- Ticket Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-ambient">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="bg-surface-container-highest text-primary font-label-sm px-3 py-1 rounded-full uppercase tracking-wider">Express Cruiser 402</span>
+<p class="font-body-sm text-on-surface-variant mt-2">Friday, Oct 25, 2024</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md text-on-surface">$124.50</p>
+<p class="font-label-sm text-tertiary">All taxes included</p>
+</div>
+</div>
+<div class="route-line mb-6 pl-2">
+<div class="flex items-start gap-4 mb-8">
+<div class="w-4 h-4 rounded-full border-2 border-primary bg-surface mt-1 shrink-0 z-10"></div>
+<div>
+<p class="font-label-md text-on-surface leading-none">08:30 AM</p>
+<p class="font-headline-md text-headline-md text-on-surface mt-1">San Francisco</p>
+<p class="font-body-sm text-on-surface-variant">Salesforce Transit Center</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-4 h-4 rounded-full bg-primary mt-1 shrink-0 z-10"></div>
+<div>
+<p class="font-label-md text-on-surface leading-none">02:45 PM</p>
+<p class="font-headline-md text-headline-md text-on-surface mt-1">Los Angeles</p>
+<p class="font-body-sm text-on-surface-variant">Union Station, Bay 4</p>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-4 flex flex-wrap gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">airline_seat_recline_normal</span>
+<span class="font-body-sm text-on-surface">Seats: <span class="font-bold">12A, 12B</span></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">luggage</span>
+<span class="font-body-sm text-on-surface">2 Check-in Bags</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">wifi</span>
+<span class="font-body-sm text-on-surface">Free Wi-Fi</span>
+</div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant">
+<h3 class="font-label-md text-on-surface mb-4">Price Breakdown</h3>
+<div class="space-y-2">
+<div class="flex justify-between font-body-sm text-on-surface-variant">
+<span>Base Fare (2 Adults)</span>
+<span>$110.00</span>
+</div>
+<div class="flex justify-between font-body-sm text-on-surface-variant">
+<span>Service Fee</span>
+<span>$8.50</span>
+</div>
+<div class="flex justify-between font-body-sm text-on-surface-variant">
+<span>Insurance</span>
+<span>$6.00</span>
+</div>
+<div class="border-t border-outline-variant mt-4 pt-4 flex justify-between items-center">
+<span class="font-label-md text-on-surface">Total Amount</span>
+<span class="font-headline-md text-headline-md text-primary">$124.50</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 bg-tertiary-container/10 border border-tertiary/20 rounded-lg">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<p class="font-body-sm text-on-tertiary-fixed-variant">Price guaranteed for the next 14:59 minutes.</p>
+</div>
+</div>
+<!-- Right Side: Payment Methods -->
+<div class="lg:col-span-7">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Payment Method</h2>
+<form class="space-y-6">
+<!-- Method Selectors -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="payment_method" type="radio" value="card">
+<div class="flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl peer-checked:border-primary peer-checked:bg-primary-fixed/30 transition-all hover:bg-surface-container">
+<span class="material-symbols-outlined text-primary mb-2">credit_card</span>
+<span class="font-label-md">Credit Card</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="payment_method" type="radio" value="wallet">
+<div class="flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl peer-checked:border-primary peer-checked:bg-primary-fixed/30 transition-all hover:bg-surface-container">
+<span class="material-symbols-outlined text-primary mb-2">account_balance_wallet</span>
+<span class="font-label-md">E-wallet</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="payment_method" type="radio" value="bank">
+<div class="flex flex-col items-center justify-center p-4 border border-outline-variant rounded-xl peer-checked:border-primary peer-checked:bg-primary-fixed/30 transition-all hover:bg-surface-container">
+<span class="material-symbols-outlined text-primary mb-2">account_balance</span>
+<span class="font-label-md">Bank Transfer</span>
+</div>
+</label>
+</div>
+<!-- Card Details Form -->
+<div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl border border-outline-variant shadow-ambient space-y-4" id="card-details">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-label-md text-on-surface">Card Information</h3>
+<div class="flex gap-2">
+<img alt="Visa" class="h-4 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfyBvDR4wz_SNQ9MWz9cPtVwhT3nAyh7APsZDaQsMQEG7fT-W9Cv413kXrk0naNDPlh0ggSLnxFfAfIdQDQsCBhZh5EZZTwG58RQKrCpbtraOEqyZdvU2VKCESVdX7bsHDuyx732FoN9Ak8PedISqwQwXX5frGGeQHzxhwNYl_R0r1ypteNn0eQP4xRrgGpfCb-okxv0LE5pPRbo86jQcJKnGUg_EGzSonuSXgD66-6H2bdBghYxxYMQ">
+<img alt="Mastercard" class="h-4 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAojo-mtzsp3D9EiTCrPEs0-kUvFmN_4ts9llEYGOtSAGuj4JtQQinzW-rXF2NDhw9yoMJOc65eYtXiQx9geliaEuqDUOR7ir_tXKLpVq3fli9FUgTv3X0iGeNBiJtS7dgZW8ZIKTgzSKRWwgnPzYimmdxzJMFWvyEe2sX3mABAwczLpw2V7IIVZcJ7J3ojShjVBYpUYNMIKzHR9p3_VTPp62LPqnnYxUtqXvcL2NWiJVFvcFhMPuaRCg">
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block font-label-sm text-outline mb-1.5">Cardholder Name</label>
+<input class="w-full border-outline-variant rounded-lg p-3 text-on-surface focus:ring-primary focus:border-primary" placeholder="John Doe" type="text">
+</div>
+<div>
+<label class="block font-label-sm text-outline mb-1.5">Card Number</label>
+<div class="relative">
+<input class="w-full border-outline-variant rounded-lg p-3 pl-4 pr-12 text-on-surface focus:ring-primary focus:border-primary" placeholder="0000 0000 0000 0000" type="text">
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline">lock</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-outline mb-1.5">Expiry Date</label>
+<input class="w-full border-outline-variant rounded-lg p-3 text-on-surface focus:ring-primary focus:border-primary" placeholder="MM/YY" type="text">
+</div>
+<div>
+<label class="block font-label-sm text-outline mb-1.5">CVV / CVC</label>
+<input class="w-full border-outline-variant rounded-lg p-3 text-on-surface focus:ring-primary focus:border-primary" placeholder="123" type="text">
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-4">
+<input class="rounded text-primary focus:ring-primary" id="save-card" type="checkbox">
+<label class="font-body-sm text-on-surface-variant" for="save-card">Save card details for future bookings</label>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="flex items-end gap-3">
+<div class="flex-grow">
+<label class="block font-label-sm text-outline mb-1.5">Promo Code</label>
+<input class="w-full border-outline-variant rounded-lg p-3 text-on-surface focus:ring-primary focus:border-primary" placeholder="Enter code" type="text">
+</div>
+<button class="bg-surface-container-high text-on-surface px-6 py-3 rounded-lg font-label-md hover:bg-surface-variant transition-colors" type="button">Apply</button>
+</div>
+<!-- Action Button -->
+<div class="space-y-4 pt-4">
+<button class="w-full bg-secondary-container text-on-primary font-headline-md py-4 rounded-xl shadow-lg hover:brightness-110 active:scale-[0.99] transition-all flex items-center justify-center gap-2" type="submit">
+<span>Confirm &amp; Pay $124.50</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center font-body-sm text-outline px-4">
+                            By clicking Confirm &amp; Pay, you agree to Intercity Velocity's 
+                            <a class="text-primary underline" href="#">Terms of Service</a> and 
+                            <a class="text-primary underline" href="#">Privacy Policy</a>.
+                        </p>
+</div>
+<!-- Trust Indicators -->
+<div class="border-t border-outline-variant pt-8 mt-8 flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">security</span>
+<span class="font-label-sm uppercase tracking-widest">SSL Secured</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">verified</span>
+<span class="font-label-sm uppercase tracking-widest">PCI Compliant</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">thumb_up</span>
+<span class="font-label-sm uppercase tracking-widest">Travel Guard</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant mt-20">
+<div class="w-full px-gutter py-12 max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-1">
+<span class="font-headline-md text-headline-md font-bold text-primary mb-4 block">Intercity Velocity</span>
+<p class="font-body-sm text-on-surface-variant leading-relaxed">Reliable intercity travel connecting cities with comfort and style. Your safety is our priority.</p>
+</div>
+<div>
+<h4 class="font-label-md text-on-surface mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">About Us</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-on-surface mb-4">Support</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact Support</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Bus Partners</a></li>
+<li><a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-on-surface mb-4">Newsletter</h4>
+<p class="font-body-sm text-on-surface-variant mb-4">Get travel deals and route updates.</p>
+<div class="flex">
+<input class="bg-surface border-outline-variant rounded-l-lg w-full p-2 focus:ring-1 focus:ring-primary border-r-0" placeholder="Email" type="email">
+<button class="bg-primary text-on-primary px-4 rounded-r-lg">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter py-6 border-t border-outline-variant text-center md:text-left">
+<p class="font-label-sm text-on-surface-variant">© 2024 Intercity Velocity. Reliable intercity travel. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Simple Interaction logic
+        const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
+        const cardDetails = document.getElementById('card-details');
+
+        paymentRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (e.target.value === 'card') {
+                    cardDetails.classList.remove('opacity-50', 'pointer-events-none');
+                    cardDetails.style.filter = 'none';
+                } else {
+                    cardDetails.classList.add('opacity-50', 'pointer-events-none');
+                    cardDetails.style.filter = 'grayscale(1)';
+                }
+            });
+        });
+
+        // Form submission prevention for demo
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Processing secure payment... Thank you for choosing Intercity Velocity!');
+        });
+    </script>
+</body></html>

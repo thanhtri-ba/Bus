@@ -1,0 +1,332 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>User Profile | Intercity Velocity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-tertiary-fixed": "#002109",
+                    "on-tertiary-container": "#ceffd0",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary-fixed": "#dbe1ff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#572000",
+                    "on-primary-container": "#f1f2ff",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#cbdbf5",
+                    "primary-container": "#0061ff",
+                    "background": "#f8f9ff",
+                    "on-secondary-fixed": "#351000",
+                    "on-surface-variant": "#424656",
+                    "surface-container": "#e5eeff",
+                    "secondary-container": "#fe6b00",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#d3e4fe",
+                    "secondary": "#a04100",
+                    "on-surface": "#0b1c30",
+                    "primary": "#004bca",
+                    "tertiary": "#00642a",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-surface": "#213145",
+                    "surface-container-high": "#dce9ff",
+                    "surface-bright": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#0052dc",
+                    "surface": "#f8f9ff",
+                    "surface-variant": "#d3e4fe",
+                    "secondary-fixed-dim": "#ffb693",
+                    "tertiary-container": "#008038",
+                    "outline": "#737687",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "secondary-fixed": "#ffdbcc",
+                    "tertiary-fixed": "#6bff8f",
+                    "outline-variant": "#c2c6d9",
+                    "on-background": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "margin-desktop": "32px",
+                    "container-max": "1200px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .card-shadow {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .sidebar-active {
+            background-color: #e5eeff;
+            color: #004bca;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<nav class="bg-surface sticky top-0 z-50 shadow-sm">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="font-headline-md text-headline-md font-bold text-primary">Intercity Velocity</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Search</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">My Bookings</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Help</a>
+<div class="flex items-center space-x-2 bg-surface-container-high px-3 py-1.5 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary">stars</span>
+<span class="font-label-md text-label-md text-on-surface">1,240 <span class="text-on-surface-variant font-normal">pts</span></span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">JS</div>
+</div>
+<!-- Mobile Menu Trigger (Simple) -->
+<button class="md:hidden text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="flex-grow w-full max-w-container-max mx-auto px-4 md:px-gutter py-8 md:py-12">
+<div class="flex flex-col md:flex-row gap-8">
+<!-- Sidebar Navigation -->
+<aside class="w-full md:w-64 flex-shrink-0">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden card-shadow">
+<div class="p-4 border-b border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-on-surface">Settings</h2>
+</div>
+<nav class="p-2 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg sidebar-active transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Personal Info</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Payment Methods</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-md text-label-md">Notifications</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-label-md text-label-md">Password &amp; Security</span>
+</a>
+<div class="pt-4 mt-4 border-t border-outline-variant">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-error hover:bg-error-container/10 transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Sign Out</span>
+</a>
+</div>
+</nav>
+</div>
+<!-- Loyalty Status Card -->
+<div class="mt-6 bg-gradient-to-br from-primary to-primary-container p-6 rounded-xl text-white relative overflow-hidden card-shadow">
+<div class="relative z-10">
+<span class="font-label-sm text-label-sm uppercase tracking-wider opacity-80">Velocity Rewards</span>
+<div class="mt-2 flex items-baseline space-x-1">
+<span class="font-headline-lg text-headline-lg">1,240</span>
+<span class="font-body-sm text-body-sm">Points</span>
+</div>
+<div class="mt-4 bg-white/20 h-1.5 rounded-full w-full">
+<div class="bg-secondary-container h-full rounded-full w-3/4"></div>
+</div>
+<p class="mt-2 font-label-sm text-label-sm opacity-90">260 points until Silver Status</p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl opacity-10 rotate-12">auto_awesome</span>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<div class="flex-grow space-y-8">
+<!-- Personal Information Section -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant card-shadow overflow-hidden">
+<div class="px-6 py-5 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface">Personal Information</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">Edit Info</button>
+</div>
+<div class="p-6">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md focus:ring-primary focus:border-primary" readonly="" type="text" value="Jane Smith">
+</div>
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Email Address</label>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md focus:ring-primary focus:border-primary" readonly="" type="email" value="jane.smith@intercity.example.com">
+</div>
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Phone Number</label>
+<div class="flex space-x-2">
+<div class="w-20 bg-surface-container-low border border-outline-variant rounded-lg px-3 py-2.5 text-center font-body-md">+1</div>
+<input class="flex-grow bg-surface-container-low border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md focus:ring-primary focus:border-primary" readonly="" type="tel" value="(555) 0123-456">
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant">Birthday</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-outline-variant rounded-lg px-4 py-2.5 font-body-md text-body-md focus:ring-primary focus:border-primary" readonly="" type="text" value="August 14, 1992">
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant">calendar_today</span>
+</div>
+</div>
+</form>
+</div>
+</section>
+<!-- Frequent Travelers Section -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant card-shadow overflow-hidden">
+<div class="px-6 py-5 border-b border-outline-variant flex justify-between items-center">
+<div class="flex items-center space-x-3">
+<h3 class="font-headline-md text-headline-md text-on-surface">Frequent Travelers</h3>
+<span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-[12px] font-bold">2 Saved</span>
+</div>
+<button class="inline-flex items-center space-x-1.5 bg-primary text-white font-label-md text-label-md px-4 py-2 rounded-lg hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add New</span>
+</button>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Traveler Card 1 -->
+<div class="border border-outline-variant rounded-xl p-4 flex items-center space-x-4 hover:border-primary transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold">
+                                MS
+                            </div>
+<div class="flex-grow">
+<h4 class="font-label-md text-label-md text-on-surface">Mark Smith</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Brother • Adult</p>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-error opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<!-- Traveler Card 2 -->
+<div class="border border-outline-variant rounded-xl p-4 flex items-center space-x-4 hover:border-primary transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold">
+                                LS
+                            </div>
+<div class="flex-grow">
+<h4 class="font-label-md text-label-md text-on-surface">Lily Smith</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Daughter • Child</p>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-error opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</section>
+<!-- App Preferences / Quick Settings (Bento style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-3">language</span>
+<h4 class="font-label-md text-label-md text-on-surface">Language</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">English (US)</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-3">payments</span>
+<h4 class="font-label-md text-label-md text-on-surface">Currency</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">USD ($)</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-3">help_center</span>
+<h4 class="font-label-md text-label-md text-on-surface">Support</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">24/7 Priority Help</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-low border-t border-outline-variant mt-12">
+<div class="w-full px-gutter py-12 max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="space-y-4">
+<div class="font-headline-md text-headline-md font-bold text-primary">Intercity Velocity</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 Intercity Velocity. Reliable intercity travel.</p>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-md text-label-md text-on-surface">Company</h5>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Bus Partners</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-md text-label-md text-on-surface">Legal</h5>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-md text-label-md text-on-surface">Newsletter</h5>
+<div class="flex">
+<input class="w-full bg-surface-container-lowest border-outline-variant rounded-l-lg px-3 py-2 text-sm focus:ring-primary focus:border-primary" placeholder="Email address" type="email">
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-r-lg font-label-md text-label-md">Join</button>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for input fields (visual only)
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('click', () => {
+                if (input.hasAttribute('readonly')) {
+                    // Quick animation to show it's currently locked/readonly
+                    input.classList.add('translate-x-1');
+                    setTimeout(() => input.classList.remove('translate-x-1'), 100);
+                }
+            });
+        });
+    </script>
+</body></html>

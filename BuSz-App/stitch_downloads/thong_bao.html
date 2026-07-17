@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Thông báo - Intercity Velocity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dbe1ff",
+                    "secondary-fixed-dim": "#ffb693",
+                    "on-secondary-container": "#572000",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-primary-fixed": "#00174b",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#b4c5ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "secondary-container": "#fe6b00",
+                    "primary-container": "#0061ff",
+                    "on-background": "#0b1c30",
+                    "on-tertiary-fixed": "#002109",
+                    "on-surface": "#0b1c30",
+                    "surface-tint": "#0052dc",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "on-secondary-fixed": "#351000",
+                    "on-primary-container": "#f1f2ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-container-high": "#dce9ff",
+                    "secondary-fixed": "#ffdbcc",
+                    "outline-variant": "#c2c6d9",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#cbdbf5",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "surface": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "tertiary-container": "#008038",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ceffd0",
+                    "surface-container-low": "#eff4ff",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#213145",
+                    "primary": "#004bca",
+                    "tertiary-fixed": "#6bff8f",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f8f9ff",
+                    "on-secondary": "#ffffff",
+                    "outline": "#737687",
+                    "on-surface-variant": "#424656",
+                    "background": "#f8f9ff",
+                    "secondary": "#a04100",
+                    "tertiary": "#00642a",
+                    "primary-fixed-dim": "#b4c5ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "base": "8px",
+                    "margin-desktop": "32px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .notification-card { transition: transform 0.2s ease, background-color 0.2s ease; }
+        .notification-card:hover { transform: translateY(-2px); }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c2c6d9; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface docked full-width top-0 shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="font-headline-md text-headline-md font-bold text-primary">Intercity Velocity</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant pb-1 hover:text-primary transition-colors font-label-md text-label-md" href="#">Search</a>
+<a class="text-on-surface-variant pb-1 hover:text-primary transition-colors font-label-md text-label-md" href="#">My Bookings</a>
+<a class="text-on-surface-variant pb-1 hover:text-primary transition-colors font-label-md text-label-md" href="#">Help</a>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:opacity-90 transition-all">Login</button>
+</nav>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-8 md:py-12">
+<div class="flex flex-col md:flex-row gap-8">
+<!-- Sidebar Navigation (Profile Context) -->
+<aside class="w-full md:w-64 space-y-2">
+<div class="p-4 bg-surface-container-low rounded-xl mb-6">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">
+                            NV
+                        </div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Nguyễn Văn A</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Thành viên Bạc</p>
+</div>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Hồ sơ của tôi</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-md text-label-md">Thông báo</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="font-label-md text-label-md">Chuyến đi của tôi</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Cài đặt</span>
+</a>
+</nav>
+</aside>
+<!-- Notifications Canvas -->
+<section class="flex-1">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Thông báo</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Cập nhật tin tức mới nhất về chuyến đi và ưu đãi.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 text-primary font-label-md text-label-md hover:bg-primary-fixed rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+                            Đánh dấu tất cả là đã đọc
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 border border-outline text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high rounded-lg transition-colors" onclick="toggleSettings()">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                            Cài đặt
+                        </button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex border-b border-outline-variant mb-6">
+<button class="px-6 py-3 border-b-2 border-primary text-primary font-label-md text-label-md" id="tab-all" onclick="switchTab('all')">Tất cả</button>
+<button class="px-6 py-3 border-b-2 border-transparent text-on-surface-variant font-label-md text-label-md hover:text-on-surface" id="tab-bookings" onclick="switchTab('bookings')">Chuyến đi</button>
+<button class="px-6 py-3 border-b-2 border-transparent text-on-surface-variant font-label-md text-label-md hover:text-on-surface" id="tab-promotions" onclick="switchTab('promotions')">Khuyến mãi</button>
+<button class="px-6 py-3 border-b-2 border-transparent text-on-surface-variant font-label-md text-label-md hover:text-on-surface" id="tab-system" onclick="switchTab('system')">Hệ thống</button>
+</div>
+<!-- Notifications List -->
+<div class="space-y-4" id="notifications-container">
+<!-- Booking Notification -->
+<div class="notification-card bg-surface-container-lowest p-5 rounded-xl border border-outline-variant shadow-sm flex gap-4 group cursor-pointer" data-category="bookings">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">directions_bus</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Xác nhận đặt vé thành công</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 giờ trước</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Chuyến đi từ Hà Nội đến Đà Nẵng (12/10/2024) của bạn đã được xác nhận. Mã đặt chỗ: #IV9921.</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-[12px] font-medium rounded-full">Đặt vé</span>
+<span class="w-2 h-2 bg-primary rounded-full my-auto ml-1"></span>
+</div>
+</div>
+</div>
+<!-- Promo Notification -->
+<div class="notification-card bg-surface-container-lowest p-5 rounded-xl border border-outline-variant shadow-sm flex gap-4 group cursor-pointer" data-category="promotions">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">sell</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Ưu đãi cuối tuần: Giảm 20%</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hôm qua</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Nhập mã 'VELOCITY20' để nhận ngay ưu đãi giảm giá cho mọi hành trình trong cuối tuần này.</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed text-[12px] font-medium rounded-full">Khuyến mãi</span>
+</div>
+</div>
+</div>
+<!-- System Notification -->
+<div class="notification-card bg-surface-container-lowest p-5 rounded-xl border border-outline-variant shadow-sm flex gap-4 group cursor-pointer" data-category="system">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-weight="fill">shield</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Cập nhật chính sách bảo mật</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 ngày trước</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Chúng tôi vừa cập nhật Điều khoản Dịch vụ để tăng cường bảo vệ quyền lợi của bạn khi di chuyển.</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-[12px] font-medium rounded-full">Hệ thống</span>
+</div>
+</div>
+</div>
+<!-- Booking Notification 2 -->
+<div class="notification-card bg-surface-container-lowest opacity-70 p-5 rounded-xl border border-outline-variant shadow-sm flex gap-4 group cursor-pointer" data-category="bookings">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 opacity-60">
+<span class="material-symbols-outlined text-primary">schedule</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Chuyến đi đã hoàn thành</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">5 ngày trước</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Hy vọng bạn đã có một hành trình thoải mái từ Sài Gòn đi Đà Lạt. Hãy đánh giá chúng tôi nhé!</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-[12px] font-medium rounded-full">Hoàn thành</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center py-20 text-center" id="empty-state">
+<span class="material-symbols-outlined text-outline-variant text-[64px] mb-4">notifications_off</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Không có thông báo</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Hiện tại bạn không có thông báo nào trong mục này.</p>
+</div>
+</section>
+</div>
+</main>
+<!-- Settings Sidebar Overlay -->
+<div class="fixed inset-0 bg-black/50 z-[100] opacity-0 pointer-events-none transition-opacity duration-300" id="settings-overlay">
+<div class="absolute right-0 top-0 h-full w-full max-w-md bg-surface shadow-2xl translate-x-full transition-transform duration-300 flex flex-col" id="settings-panel">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h2 class="font-headline-md text-headline-md text-on-surface">Cài đặt thông báo</h2>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container flex items-center justify-center" onclick="toggleSettings()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
+<div>
+<h3 class="font-label-md text-label-md text-primary mb-4 uppercase tracking-wider">Phương thức nhận</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Email</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nhận cập nhật qua hòm thư điện tử</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Thông báo đẩy (Push)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nhận thông báo trực tiếp trên thiết bị</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-primary mb-4 uppercase tracking-wider">Chủ đề quan tâm</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<p class="font-body-md text-body-md text-on-surface">Trạng thái chuyến đi</p>
+<input checked="" class="rounded border-outline text-primary focus:ring-primary h-5 w-5" type="checkbox">
+</div>
+<div class="flex items-center justify-between">
+<p class="font-body-md text-body-md text-on-surface">Khuyến mãi &amp; Ưu đãi</p>
+<input checked="" class="rounded border-outline text-primary focus:ring-primary h-5 w-5" type="checkbox">
+</div>
+<div class="flex items-center justify-between">
+<p class="font-body-md text-body-md text-on-surface">Nhắc nhở thanh toán</p>
+<input checked="" class="rounded border-outline text-primary focus:ring-primary h-5 w-5" type="checkbox">
+</div>
+<div class="flex items-center justify-between">
+<p class="font-body-md text-body-md text-on-surface">Tin tức hệ thống</p>
+<input class="rounded border-outline text-primary focus:ring-primary h-5 w-5" type="checkbox">
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-3 rounded-xl font-headline-md text-headline-md shadow-md hover:opacity-90 transition-all">
+                        Lưu thay đổi
+                    </button>
+<button class="w-full mt-2 py-3 text-on-surface-variant font-label-md text-label-md hover:underline transition-all" onclick="toggleSettings()">
+                        Hủy bỏ
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant mt-20">
+<div class="w-full px-gutter py-12 max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="space-y-4">
+<div class="font-headline-md text-headline-md font-bold text-primary">Intercity Velocity</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 Intercity Velocity. Dịch vụ vận tải liên tỉnh tin cậy và chuyên nghiệp.</p>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-label-md text-label-md text-on-surface font-bold">Về chúng tôi</p>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors underline-offset-4 active:underline" href="#">About Us</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors underline-offset-4 active:underline" href="#">Bus Partners</a>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-label-md text-label-md text-on-surface font-bold">Pháp lý</p>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors underline-offset-4 active:underline" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors underline-offset-4 active:underline" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-label-md text-label-md text-on-surface font-bold">Hỗ trợ</p>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary transition-colors underline-offset-4 active:underline" href="#">Contact Support</a>
+<div class="flex gap-4 mt-2">
+<div class="w-8 h-8 rounded-full bg-outline-variant/30 flex items-center justify-center cursor-pointer hover:bg-primary/20">
+<span class="material-symbols-outlined text-[18px]">face_nod</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-outline-variant/30 flex items-center justify-center cursor-pointer hover:bg-primary/20">
+<span class="material-symbols-outlined text-[18px]">alternate_email</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        function toggleSettings() {
+            const overlay = document.getElementById('settings-overlay');
+            const panel = document.getElementById('settings-panel');
+            
+            if (overlay.classList.contains('pointer-events-none')) {
+                overlay.classList.remove('pointer-events-none', 'opacity-0');
+                overlay.classList.add('opacity-100');
+                panel.classList.remove('translate-x-full');
+            } else {
+                overlay.classList.add('opacity-0');
+                panel.classList.add('translate-x-full');
+                setTimeout(() => {
+                    overlay.classList.add('pointer-events-none');
+                    overlay.classList.remove('opacity-100');
+                }, 300);
+            }
+        }
+
+        function switchTab(category) {
+            const tabs = ['all', 'bookings', 'promotions', 'system'];
+            tabs.forEach(tab => {
+                const el = document.getElementById(`tab-${tab}`);
+                if (tab === category) {
+                    el.classList.remove('border-transparent', 'text-on-surface-variant');
+                    el.classList.add('border-primary', 'text-primary');
+                } else {
+                    el.classList.add('border-transparent', 'text-on-surface-variant');
+                    el.classList.remove('border-primary', 'text-primary');
+                }
+            });
+
+            const items = document.querySelectorAll('.notification-card');
+            let visibleCount = 0;
+            
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.classList.remove('hidden');
+                    item.classList.add('flex');
+                    visibleCount++;
+                } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('flex');
+                }
+            });
+
+            const emptyState = document.getElementById('empty-state');
+            if (visibleCount === 0) {
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+            } else {
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+            }
+        }
+
+        // Close settings when clicking overlay
+        document.getElementById('settings-overlay').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('settings-overlay')) {
+                toggleSettings();
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Seat Selection - Intercity Velocity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#d3e4fe",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "surface-dim": "#cbdbf5",
+                    "primary-fixed": "#dbe1ff",
+                    "on-surface-variant": "#424656",
+                    "outline": "#737687",
+                    "secondary-container": "#fe6b00",
+                    "on-surface": "#0b1c30",
+                    "tertiary": "#00642a",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#d3e4fe",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#00174b",
+                    "surface-container": "#e5eeff",
+                    "primary": "#004bca",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#c2c6d9",
+                    "on-background": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "inverse-surface": "#213145",
+                    "surface-bright": "#f8f9ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface": "#f8f9ff",
+                    "secondary-fixed": "#ffdbcc",
+                    "on-secondary-fixed": "#351000",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#a04100",
+                    "tertiary-container": "#008038",
+                    "surface-tint": "#0052dc",
+                    "tertiary-fixed": "#6bff8f",
+                    "surface-container-high": "#dce9ff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary-container": "#f1f2ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#ffb693",
+                    "on-secondary-container": "#572000",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "background": "#f8f9ff",
+                    "on-tertiary-fixed": "#002109",
+                    "on-tertiary-container": "#ceffd0",
+                    "inverse-primary": "#b4c5ff",
+                    "primary-container": "#0061ff",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "32px",
+                    "container-max": "1200px",
+                    "margin-mobile": "16px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .seat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            max-width: 240px;
+        }
+        .seat-grid .aisle {
+            grid-column: 3;
+            width: 24px;
+        }
+        .custom-shadow-l2 {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .custom-shadow-l3 {
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Intercity Velocity</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-outline-variant pb-1 font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Search</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 font-body-md text-body-md" href="#">My Bookings</a>
+<a class="text-on-surface-variant dark:text-outline-variant pb-1 font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Help</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-md text-label-md font-bold hover:opacity-80 transition-all duration-200">
+                Login
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-gutter py-8 md:py-12">
+<!-- Step Indicator -->
+<div class="mb-10 flex items-center justify-center space-x-4">
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined mr-2" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md">Select Trip</span>
+</div>
+<div class="w-12 h-px bg-outline-variant"></div>
+<div class="flex items-center text-primary">
+<span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-[12px] font-bold mr-2">2</span>
+<span class="font-label-md text-label-md">Seat &amp; Details</span>
+</div>
+<div class="w-12 h-px bg-outline-variant"></div>
+<div class="flex items-center text-outline">
+<span class="w-6 h-6 rounded-full border border-outline flex items-center justify-center text-[12px] font-bold mr-2">3</span>
+<span class="font-label-md text-label-md">Payment</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left: Seat Selection Map -->
+<section class="lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl custom-shadow-l2 border border-outline-variant">
+<div class="flex flex-col items-center">
+<h2 class="font-headline-md text-headline-md mb-6 text-center">Select Your Seats</h2>
+<!-- Bus Layout Container -->
+<div class="relative bg-surface-container-low border-2 border-outline-variant rounded-[40px] px-8 py-12 w-full max-w-[280px]">
+<!-- Driver Area -->
+<div class="flex justify-end mb-10 border-b border-outline-variant pb-6">
+<div class="w-10 h-10 rounded bg-outline-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">sports_cricket</span>
+</div>
+</div>
+<!-- Seats Grid -->
+<div class="seat-grid mx-auto">
+<!-- Rows -->
+<!-- Row 1 -->
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'A1')">A1</button>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'A2')">A2</button>
+<div class="aisle"></div>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'A3')">A3</button>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'A4')">A4</button>
+<!-- Row 2 -->
+<button class="w-10 h-10 rounded-lg bg-surface-dim text-outline-variant cursor-not-allowed flex items-center justify-center font-label-sm text-label-sm overflow-hidden relative">
+                                B1
+                                <div class="absolute w-full h-[2px] bg-outline-variant rotate-45"></div>
+</button>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'B2')">B2</button>
+<div class="aisle"></div>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'B3')">B3</button>
+<button class="w-10 h-10 rounded-lg bg-surface-dim text-outline-variant cursor-not-allowed flex items-center justify-center font-label-sm text-label-sm overflow-hidden relative">
+                                B4
+                                <div class="absolute w-full h-[2px] bg-outline-variant rotate-45"></div>
+</button>
+<!-- Row 3 -->
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'C1')">C1</button>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'C2')">C2</button>
+<div class="aisle"></div>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'C3')">C3</button>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'C4')">C4</button>
+<!-- Row 4 -->
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'D1')">D1</button>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'D2')">D2</button>
+<div class="aisle"></div>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'D3')">D3</button>
+<button class="w-10 h-10 rounded-lg border-2 border-primary bg-white hover:bg-primary-fixed transition-all flex items-center justify-center font-label-sm text-label-sm" onclick="toggleSeat(this, 'D4')">D4</button>
+</div>
+</div>
+<!-- Legend -->
+<div class="mt-8 grid grid-cols-2 gap-4 w-full text-label-sm font-label-sm">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 rounded border-2 border-primary bg-white"></div>
+<span>Available</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 rounded bg-primary"></div>
+<span>Selected</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 rounded bg-surface-dim overflow-hidden relative">
+<div class="absolute w-full h-[1px] bg-outline-variant rotate-45 top-1.5"></div>
+</div>
+<span>Occupied</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right: Passenger Details & Summary -->
+<section class="lg:col-span-8 flex flex-col gap-8">
+<!-- Passenger Details Form -->
+<div class="bg-surface-container-lowest p-8 rounded-xl custom-shadow-l2 border border-outline-variant">
+<h3 class="font-headline-md text-headline-md mb-6">Passenger Details</h3>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Full Name</label>
+<input class="bg-surface p-3 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary outline-none font-body-md text-body-md" placeholder="John Doe" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Phone Number</label>
+<input class="bg-surface p-3 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary outline-none font-body-md text-body-md" placeholder="+1 (555) 000-0000" type="tel">
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Email Address</label>
+<input class="bg-surface p-3 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary outline-none font-body-md text-body-md" placeholder="john.doe@example.com" type="email">
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Pickup Point</label>
+<select class="bg-surface p-3 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary outline-none font-body-md text-body-md">
+<option>Central Station (Main Entrance)</option>
+<option>East Side Terminal</option>
+<option>Northern Transit Hub</option>
+</select>
+</div>
+</form>
+</div>
+<!-- Summary Card (Becomes fixed/floating on scroll if desired, here static but styled) -->
+<div class="bg-surface-container p-8 rounded-xl border border-primary/20 custom-shadow-l3 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+<div>
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-wider mb-2">Booking Summary</h4>
+<div class="flex items-center gap-4 mb-1">
+<span class="font-headline-md text-headline-md" id="selected-seats-count">0 Seats Selected</span>
+<span class="text-outline">|</span>
+<span class="font-body-md text-body-md text-on-surface-variant" id="seat-list">None</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trip: New York → Boston (Express 042)</p>
+</div>
+<div class="flex flex-col items-start md:items-end gap-4">
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Total Price</span>
+<span class="font-headline-lg text-headline-lg text-secondary" id="total-price">$0.00</span>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-3 rounded-lg font-headline-md text-headline-md font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg" disabled="" id="proceed-btn">
+                                Proceed to Payment
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline mt-16">
+<div class="w-full px-gutter py-12 max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed mb-4 block">Intercity Velocity</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant">© 2024 Intercity Velocity. Reliable intercity travel.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="font-label-md text-label-md font-bold uppercase">Quick Links</h5>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Bus Partners</a>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="font-label-md text-label-md font-bold uppercase">Legal</h5>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="font-label-md text-label-md font-bold uppercase">Support</h5>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Contact Support</a>
+<div class="flex gap-4 mt-2">
+<span class="material-symbols-outlined text-primary cursor-pointer">face_nod</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">share</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        let selectedSeats = [];
+        const seatPrice = 45.00;
+
+        function toggleSeat(button, seatId) {
+            const isSelected = selectedSeats.includes(seatId);
+            
+            if (isSelected) {
+                // Deselect
+                selectedSeats = selectedSeats.filter(s => s !== seatId);
+                button.classList.remove('bg-primary', 'text-white');
+                button.classList.add('bg-white', 'text-on-surface');
+            } else {
+                // Select
+                if (selectedSeats.length >= 6) {
+                    alert("Maximum 6 seats allowed per booking.");
+                    return;
+                }
+                selectedSeats.push(seatId);
+                button.classList.remove('bg-white', 'text-on-surface');
+                button.classList.add('bg-primary', 'text-white');
+            }
+
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const countEl = document.getElementById('selected-seats-count');
+            const listEl = document.getElementById('seat-list');
+            const priceEl = document.getElementById('total-price');
+            const proceedBtn = document.getElementById('proceed-btn');
+
+            const count = selectedSeats.length;
+            countEl.textContent = count === 1 ? '1 Seat Selected' : `${count} Seats Selected`;
+            listEl.textContent = count > 0 ? selectedSeats.join(', ') : 'None';
+            
+            const total = count * seatPrice;
+            priceEl.textContent = `$${total.toFixed(2)}`;
+
+            if (count > 0) {
+                proceedBtn.disabled = false;
+                proceedBtn.classList.add('animate-pulse');
+                setTimeout(() => proceedBtn.classList.remove('animate-pulse'), 1000);
+            } else {
+                proceedBtn.disabled = true;
+            }
+        }
+    </script>
+</body></html>

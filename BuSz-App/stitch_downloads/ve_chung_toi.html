@@ -1,0 +1,294 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>About Us | Intercity Velocity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#d3e4fe",
+                    "primary-container": "#0061ff",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#0052dc",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-high": "#dce9ff",
+                    "tertiary-container": "#008038",
+                    "primary-fixed": "#dbe1ff",
+                    "secondary-fixed": "#ffdbcc",
+                    "outline-variant": "#c2c6d9",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-secondary-fixed": "#351000",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#eff4ff",
+                    "on-tertiary-container": "#ceffd0",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "inverse-surface": "#213145",
+                    "on-tertiary-fixed": "#002109",
+                    "on-secondary-container": "#572000",
+                    "secondary": "#a04100",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-container": "#f1f2ff",
+                    "tertiary": "#00642a",
+                    "outline": "#737687",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "on-surface-variant": "#424656",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed": "#6bff8f",
+                    "primary": "#004bca",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#fe6b00",
+                    "surface-dim": "#cbdbf5",
+                    "on-background": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#ffb693"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface shadow-sm h-16 flex items-center">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<a class="font-headline-md text-headline-md font-bold text-primary" href="#">Intercity Velocity</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-1" href="#">Search</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-1" href="#">My Bookings</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary pb-1" href="#">About Us</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-1" href="#">Help</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="font-label-md text-label-md px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-all">Login</button>
+</div>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative h-[614px] min-h-[400px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A panoramic wide shot of a modern, sleek intercity bus driving through the lush green mountains of Northern Vietnam during a golden sunrise. The atmosphere is serene and reliable, with warm cinematic lighting catching the chrome details of the vehicle. Pristine clouds float over the limestone karsts in the background, creating a professional yet welcoming travel aesthetic in high resolution." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJravOgwXCWfQBMZUMXEPim1IWuJfL9rPfkKtdjv8fWCd6Vr-8GGNrDb6qJ916RUKpFuqkytGFzwC6uE1sSYxzmI0as3mSKoBGKPhzC8tTS_dooVpEp5NGfU_Yst2MBOc53CriGeWR5o-UTtDqygX5eHQIKfjdHy6HpTq3ErtT8gjUfUH8A1-L4-bBxiZmL-JUwFN36zCa-2UipJQP3EOSzflyAwdNd_lXg3YwJK9GiHTROyULEaNWDQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface/80 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full px-gutter max-w-container-max mx-auto text-on-primary">
+<div class="max-w-2xl">
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-lg mb-6 tracking-wider uppercase">Our Mission</span>
+<h1 class="font-headline-xl text-headline-xl mb-4 leading-tight">Reliable travel across Vietnam.</h1>
+<p class="font-body-lg text-body-lg text-surface-variant opacity-90 max-w-lg">We bridge distances with safety and precision, connecting people across the vibrant landscapes of Vietnam with world-class intercity logistics.</p>
+</div>
+</div>
+</section>
+<!-- Company Milestones (Scale) -->
+<section class="py-12 bg-surface-container relative z-20 -mt-12 mx-gutter max-w-container-max md:mx-auto rounded-xl shadow-md grid grid-cols-2 md:grid-cols-4 gap-8 px-12 text-center">
+<div class="space-y-1">
+<p class="font-headline-lg text-headline-lg text-primary">500+</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Daily Routes</p>
+</div>
+<div class="space-y-1">
+<p class="font-headline-lg text-headline-lg text-primary">1M+</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Yearly Passengers</p>
+</div>
+<div class="space-y-1">
+<p class="font-headline-lg text-headline-lg text-primary">64</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Cities Connected</p>
+</div>
+<div class="space-y-1">
+<p class="font-headline-lg text-headline-lg text-primary">99%</p>
+<p class="font-label-md text-label-md text-on-surface-variant">On-time Arrival</p>
+</div>
+</section>
+<!-- Our Story -->
+<section class="py-24 px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Our Story</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Founded in 2018, Intercity Velocity emerged from a simple observation: Vietnam's rapid growth deserved a transit network that matched its ambition. What started with three routes from Ho Chi Minh City has evolved into a nationwide infrastructure of reliability.</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">We don't just book tickets; we manage journeys. By integrating advanced tracking technology with a customer-first service culture, we've redefined what passengers expect from intercity bus travel in Southeast Asia. Our commitment to transparency and punctuality remains our guiding star.</p>
+</div>
+<div class="p-6 bg-surface-container-low border-l-4 border-primary rounded-r-xl">
+<p class="font-body-md italic text-on-surface-variant">"Our goal was never just to be the largest, but to be the most trusted. Every kilometer we drive is a promise kept to a family, a business, or a traveler."</p>
+<p class="mt-4 font-label-md text-label-md text-on-surface">— Minh Nguyen, CEO &amp; Founder</p>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary-container/10 rounded-xl blur-2xl group-hover:bg-primary-container/20 transition-all"></div>
+<div class="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-xl">
+<img class="w-full h-full object-cover" data-alt="A professional group portrait of the Intercity Velocity leadership and operations team standing in front of a modern glass office building in Hanoi. The team is dressed in professional corporate attire with subtle orange accents, looking confident and welcoming. Bright, natural daylight creates sharp, clean shadows, reflecting a high-trust, authoritative, and efficient company culture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9lLGWn14Bc2ArwWjpeArdBuXFZsDmjVQNVcwIhELWlzYpjV4wr4tzLSCT4wSYjJjXPGJHJq3wOG0uZ3AoykVnxNi82saxBDiux_0w9FzuHj13AIo5_xg2-QWhtrHeDSGHjwukL-aBRWR05Tn73MZGEDjeBhPFP4sAecforrpcQXlGvw5ajw8GIzb88ACdKzPlex_VMVDE7oYI44u95b5y8R6CUTQzht3231KvoZZHTdsT0rCUKPfHIQ">
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg">Why Choose Us</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">We prioritize what matters most to travelers: security, time, and support.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Safety -->
+<div class="bg-surface p-8 rounded-2xl shadow-sm border border-outline-variant hover:shadow-md transition-all group">
+<div class="w-16 h-16 bg-primary-container/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-on-primary">shield_person</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Uncompromising Safety</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Our fleet undergoes rigorous bi-weekly inspections and all drivers are certified with advanced safety training modules.</p>
+</div>
+<!-- Punctuality -->
+<div class="bg-surface p-8 rounded-2xl shadow-sm border border-outline-variant hover:shadow-md transition-all group">
+<div class="w-16 h-16 bg-primary-container/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-on-primary">schedule</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Guaranteed Punctuality</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">With AI-driven route optimization and real-time monitoring, we boast a 99% on-time performance record across the country.</p>
+</div>
+<!-- 24/7 Support -->
+<div class="bg-surface p-8 rounded-2xl shadow-sm border border-outline-variant hover:shadow-md transition-all group">
+<div class="w-16 h-16 bg-primary-container/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-on-primary">support_agent</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">24/7 Human Support</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">No bots. Access real assistance anytime, anywhere through our dedicated hotline or live chat for booking changes or travel help.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-24 px-gutter">
+<div class="max-w-container-max mx-auto bg-primary rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-secondary-container/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl"></div>
+<div class="relative z-10 space-y-8">
+<h2 class="font-headline-xl text-headline-xl text-on-primary max-w-3xl mx-auto">Ready to experience the future of intercity travel?</h2>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-secondary-container text-on-secondary-container font-headline-md text-headline-md px-10 py-4 rounded-xl hover:scale-105 transition-transform active:opacity-80">Book Your Journey</button>
+<button class="border border-on-primary text-on-primary font-headline-md text-headline-md px-10 py-4 rounded-xl hover:bg-on-primary hover:text-primary transition-all">View All Routes</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="w-full px-gutter py-12 max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1 space-y-4">
+<div class="font-headline-md text-headline-md font-bold text-primary">Intercity Velocity</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Reliable intercity travel connecting the heart of Vietnam.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Company</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">About Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">Bus Partners</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Legal</h4>
+<ul class="space-y-2">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary hover:underline transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Follow Us</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary border border-outline-variant hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+</div>
+</div>
+</div>
+<div class="w-full px-gutter py-6 max-w-container-max mx-auto border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Intercity Velocity. Reliable intercity travel.</p>
+</div>
+</footer>
+<script>
+        // Simple scroll effect for navigation
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.add('bg-white/95');
+                header.classList.add('backdrop-blur-sm');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.remove('bg-white/95');
+                header.classList.remove('backdrop-blur-sm');
+            }
+        });
+
+        // Animation for numbers
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.milestone-card').forEach(el => observer.observe(el));
+    </script>
+</body></html>

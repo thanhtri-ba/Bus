@@ -1,0 +1,318 @@
+<!DOCTYPE html><html class="light" lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Đăng nhập | Intercity Velocity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#dbe1ff",
+                    "secondary-fixed-dim": "#ffb693",
+                    "on-secondary-container": "#572000",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "on-primary-fixed": "#00174b",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#b4c5ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "secondary-container": "#fe6b00",
+                    "primary-container": "#0061ff",
+                    "on-background": "#0b1c30",
+                    "on-tertiary-fixed": "#002109",
+                    "on-surface": "#0b1c30",
+                    "surface-tint": "#0052dc",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "on-secondary-fixed": "#351000",
+                    "on-primary-container": "#f1f2ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-container-high": "#dce9ff",
+                    "secondary-fixed": "#ffdbcc",
+                    "outline-variant": "#c2c6d9",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#cbdbf5",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "surface": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "tertiary-container": "#008038",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ceffd0",
+                    "surface-container-low": "#eff4ff",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#213145",
+                    "primary": "#004bca",
+                    "tertiary-fixed": "#6bff8f",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f8f9ff",
+                    "on-secondary": "#ffffff",
+                    "outline": "#737687",
+                    "on-surface-variant": "#424656",
+                    "background": "#f8f9ff",
+                    "secondary": "#a04100",
+                    "tertiary": "#00642a",
+                    "primary-fixed-dim": "#b4c5ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.8rem",
+                    "xl": "1rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "base": "8px",
+                    "margin-desktop": "32px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-transition {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .bg-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden h-screen">
+<main class="flex h-full w-full">
+<!-- Visual Section (Scenic Image) -->
+<section class="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-10000 hover:scale-105" data-alt="A professional high-resolution photograph of a sleek, modern white and blue intercity luxury coach driving smoothly along a scenic winding coastal highway at golden hour. The sunlight reflects off the bus's polished surface, with rolling green hills and a deep blue ocean in the background. The aesthetic is clean, bright, and professional, utilizing a primary blue and secondary orange palette to evoke a sense of safe, high-end, and reliable travel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-gt5QLaG0_D2uRvp2ItmYKzw-49OfAxWLGTxHHdo72Qi1rYKJGAQ473Mxhf2UqYC54TWrO2FV1p0oNzw4pgSvVeUvc8Yhpw-Ir18qoZC4JDKFeHGkgvgzHVv7j8nGsTinBhidOCq_s76w56kYLqczkow5Kut5x0zccxOFo-NVmhUtmpBzun1REzgQ__p8kNneoR604aN8ZMitmOQeSyawIY8EzcbIHHeGgnmSggIVxIFfdd-8JLRpEg')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent to-surface/30"></div>
+</div>
+<div class="relative z-10 p-16 flex flex-col justify-between w-full">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-white drop-shadow-lg max-w-md">
+                        Kết Nối Hành Trình Của Bạn.
+                    </h1>
+<p class="font-body-lg text-body-lg text-white/90 mt-4 drop-shadow-md max-w-sm">
+                        Trải nghiệm dịch vụ vận tải liên tỉnh hiện đại, an toàn và đúng giờ cùng Intercity Velocity.
+                    </p>
+</div>
+<div class="bg-glass p-6 rounded-xl border border-white/20 self-start">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">directions_bus</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Chuyến đi sắp tới</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hà Nội — Đà Nẵng | 20:00 Tối nay</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Form Section -->
+<section class="w-full lg:w-1/2 flex flex-col justify-center items-center px-6 md:px-12 bg-surface-container-lowest overflow-y-auto">
+<div class="w-full max-w-md py-12">
+<!-- Brand Header -->
+<div class="mb-10 flex flex-col items-center lg:items-start">
+<div class="text-primary font-headline-md text-headline-md font-bold mb-2">
+                        Intercity Velocity
+                    </div>
+<div id="auth-header-container">
+<h2 class="font-headline-lg text-headline-lg text-on-surface" id="form-title">Chào mừng trở lại</h2>
+<p class="font-body-md text-body-md text-on-surface-variant" id="form-subtitle">Vui lòng đăng nhập để quản lý các chuyến đi của bạn.</p>
+</div>
+</div>
+<!-- Toggle -->
+<div class="flex bg-surface-container-high p-1 rounded-lg mb-8">
+<button class="flex-1 py-2 rounded-md font-label-md text-label-md transition-all bg-surface-container-lowest text-primary shadow-sm" id="btn-tab-login" onclick="toggleAuth('login')">
+                        Đăng nhập
+                    </button>
+<button class="flex-1 py-2 rounded-md font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface" id="btn-tab-signup" onclick="toggleAuth('signup')">
+                        Đăng ký
+                    </button>
+</div>
+<!-- Forms -->
+<div class="relative">
+<!-- Login Form -->
+<form class="space-y-6 form-transition opacity-100" id="login-form">
+<div class="space-y-4">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="login-email">Email / Số điện thoại</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">person</span>
+<input class="w-full pl-10 pr-4 py-3 bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-body-md text-body-md" id="login-email" placeholder="example@gmail.com" type="text">
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block font-label-md text-label-md text-on-surface" for="login-password">Mật khẩu</label>
+<a class="font-label-sm text-label-sm text-primary hover:underline transition-all" href="#">Quên mật khẩu?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pl-10 pr-4 py-3 bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-body-md text-body-md" id="login-password" placeholder="••••••••" type="password">
+</div>
+</div>
+</div>
+<div class="flex items-center">
+<input class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary" id="remember" type="checkbox">
+<label class="ml-2 font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="remember">Duy trì đăng nhập</label>
+</div>
+<button class="w-full bg-secondary-container hover:bg-secondary text-white font-label-md text-label-md py-4 rounded-lg shadow-md transition-all active:scale-[0.98] focus:ring-4 focus:ring-secondary-fixed" type="submit">
+                            Đăng nhập
+                        </button>
+</form>
+<!-- Sign Up Form (Hidden by default) -->
+<form class="space-y-6 form-transition hidden opacity-0 translate-x-4" id="signup-form">
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-1">
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="signup-fname">Họ</label>
+<input class="w-full px-4 py-3 bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-body-md text-body-md" id="signup-fname" placeholder="Nguyễn" type="text">
+</div>
+<div class="col-span-1">
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="signup-lname">Tên</label>
+<input class="w-full px-4 py-3 bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-body-md text-body-md" id="signup-lname" placeholder="Anh" type="text">
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="signup-email">Email</label>
+<input class="w-full px-4 py-3 bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-body-md text-body-md" id="signup-email" placeholder="example@gmail.com" type="email">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="signup-phone">Số điện thoại</label>
+<input class="w-full px-4 py-3 bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-body-md text-body-md" id="signup-phone" placeholder="0901 234 567" type="tel">
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="signup-password">Mật khẩu</label>
+<input class="w-full px-4 py-3 bg-white border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-body-md text-body-md" id="signup-password" placeholder="Tối thiểu 8 ký tự" type="password">
+</div>
+<button class="w-full bg-primary-container hover:bg-primary text-white font-label-md text-label-md py-4 rounded-lg shadow-md transition-all active:scale-[0.98] focus:ring-4 focus:ring-primary-fixed" type="submit">
+                            Tạo tài khoản
+                        </button>
+</form>
+</div>
+<!-- Divider -->
+<div class="relative my-10">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant"></div>
+</div>
+<div class="relative flex justify-center text-label-sm text-label-sm">
+<span class="px-4 bg-surface-container-lowest text-on-surface-variant">Hoặc tiếp tục với</span>
+</div>
+</div>
+<!-- Social Login -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center py-3 border border-outline-variant rounded-lg bg-white hover:bg-surface transition-colors space-x-2">
+<svg class="w-5 h-5" viewBox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 1.22-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="font-label-md text-label-md text-on-surface">Google</span>
+</button>
+<button class="flex items-center justify-center py-3 border border-outline-variant rounded-lg bg-white hover:bg-surface transition-colors space-x-2">
+<svg class="w-5 h-5" fill="#1877F2" viewBox="0 0 24 24">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+</svg>
+<span class="font-label-md text-label-md text-on-surface">Facebook</span>
+</button>
+</div>
+<div class="mt-12 text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        Bằng cách tiếp tục, bạn đồng ý với 
+                        <a class="text-primary hover:underline" href="#">Điều khoản Dịch vụ</a> và 
+                        <a class="text-primary hover:underline" href="#">Chính sách Bảo mật</a> của chúng tôi.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<script>
+        function toggleAuth(mode) {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const btnTabLogin = document.getElementById('btn-tab-login');
+            const btnTabSignup = document.getElementById('btn-tab-signup');
+            const formTitle = document.getElementById('form-title');
+            const formSubtitle = document.getElementById('form-subtitle');
+
+            if (mode === 'signup') {
+                // Change UI state for Signup
+                loginForm.classList.add('hidden', 'opacity-0', '-translate-x-4');
+                signupForm.classList.remove('hidden');
+                setTimeout(() => {
+                    signupForm.classList.remove('opacity-0', 'translate-x-4');
+                }, 10);
+                
+                btnTabSignup.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+                btnTabLogin.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+                btnTabLogin.classList.add('text-on-surface-variant');
+                
+                formTitle.innerText = "Tham gia cùng chúng tôi";
+                formSubtitle.innerText = "Đăng ký tài khoản để bắt đầu hành trình của bạn.";
+                document.title = "Đăng ký | Intercity Velocity";
+            } else {
+                // Change UI state for Login
+                signupForm.classList.add('hidden', 'opacity-0', 'translate-x-4');
+                loginForm.classList.remove('hidden');
+                setTimeout(() => {
+                    loginForm.classList.remove('opacity-0', '-translate-x-4');
+                }, 10);
+                
+                btnTabLogin.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+                btnTabSignup.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+                btnTabSignup.classList.add('text-on-surface-variant');
+                
+                formTitle.innerText = "Chào mừng trở lại";
+                formSubtitle.innerText = "Vui lòng đăng nhập để quản lý các chuyến đi của bạn.";
+                document.title = "Đăng nhập | Intercity Velocity";
+            }
+        }
+
+        // Lightweight atmospheric effect: mouse move slightly shifts the image
+        document.addEventListener('mousemove', (e) => {
+            const image = document.querySelector('[data-alt*="professional high-resolution"]');
+            if (window.innerWidth >= 1024 && image) {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+                image.style.transform = `scale(1.05) translate(${moveX}px, ${moveY}px)`;
+            }
+        });
+    </script>
+</body></html>
