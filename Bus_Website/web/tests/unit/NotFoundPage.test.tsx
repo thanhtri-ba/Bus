@@ -1,0 +1,2 @@
+import { render,screen } from '@testing-library/react'; import { MemoryRouter } from 'react-router-dom'; import { NotFoundPage } from '@/features/errors/pages/NotFoundPage';
+describe('NotFoundPage',()=>{it('shows 404 state',()=>{render(<MemoryRouter><NotFoundPage/></MemoryRouter>);expect(screen.getByText('404')).toBeInTheDocument();expect(screen.getByRole('heading',{name:'Không tìm thấy trang'})).toBeInTheDocument()})});

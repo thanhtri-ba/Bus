@@ -1,0 +1,2 @@
+import { CircleAlert } from 'lucide-react'; import { Button } from '@/design-system/components/Button';
+export function ErrorState({title='Đã xảy ra lỗi',description='Vui lòng thử lại.',onRetry}:{title?:string;description?:string;onRetry?:()=>void}){return <section className="state state--error"><CircleAlert size={38}/><h2>{title}</h2><p>{description}</p>{onRetry&&<Button onClick={onRetry}>Thử lại</Button>}</section>}

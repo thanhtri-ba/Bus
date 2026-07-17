@@ -1,0 +1,2 @@
+import { Inbox } from 'lucide-react'; import { Button } from '@/design-system/components/Button';
+export function EmptyState({title='Chưa có dữ liệu',description,actionLabel,onAction}:{title?:string;description?:string;actionLabel?:string;onAction?:()=>void}){return <section className="state"><Inbox size={38}/><h2>{title}</h2>{description&&<p>{description}</p>}{actionLabel&&onAction&&<Button onClick={onAction}>{actionLabel}</Button>}</section>}

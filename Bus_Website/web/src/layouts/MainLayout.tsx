@@ -1,0 +1,6 @@
+import { NavLink, Outlet } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { Button } from '@/design-system/components/Button';
+import { useUiStore } from '@/store/ui.store';
+const nav=[['/','Trang chủ'],['/search','Tìm chuyến'],['/offers','Ưu đãi'],['/help','Hỗ trợ']];
+export function MainLayout(){const open=useUiStore(s=>s.mobileMenuOpen);const toggle=useUiStore(s=>s.toggleMobileMenu);const close=()=>useUiStore.getState().setMobileMenuOpen(false);return <div className="app-shell"><header className="header"><div className="container header__inner"><NavLink to="/" className="brand">Bus<span>Z</span></NavLink><nav className={open?'nav nav--open':'nav'} aria-label="Điều hướng chính">{nav.map(([to,label])=><NavLink key={to} to={to} onClick={close}>{label}</NavLink>)}<NavLink to="/login" onClick={close}>Đăng nhập</NavLink></nav><Button className="menu-btn" variant="ghost" onClick={toggle} aria-label={open?'Đóng menu':'Mở menu'}>{open?<X/>:<Menu/>}</Button></div></header><main><Outlet/></main><footer className="footer"><div className="container footer__grid"><div><div className="brand brand--light">Bus<span>Z</span></div><p>Nền tảng đặt vé xe khách liên tỉnh an toàn và thuận tiện.</p></div><div><strong>Liên kết</strong><p>Điều khoản · Bảo mật · Trung tâm trợ giúp</p></div></div></footer></div>}

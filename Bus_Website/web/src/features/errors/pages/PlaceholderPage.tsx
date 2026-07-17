@@ -1,0 +1,1 @@
+export function PlaceholderPage({title}:{title:string}){return <section className="container page"><span className="eyebrow">BusZ Foundation</span><h1>{title}</h1><p>Trang này đã được định tuyến và sẽ được triển khai ở phase nghiệp vụ tương ứng.</p></section>}

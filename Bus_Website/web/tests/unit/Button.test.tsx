@@ -1,0 +1,2 @@
+import { render,screen } from '@testing-library/react'; import { userEvent } from '@testing-library/user-event'; import { Button } from '@/design-system/components/Button';
+describe('Button',()=>{it('renders and handles click',async()=>{const user=userEvent.setup();let count=0;render(<Button onClick={()=>{count+=1}}>Đặt vé</Button>);await user.click(screen.getByRole('button',{name:'Đặt vé'}));expect(count).toBe(1)})});

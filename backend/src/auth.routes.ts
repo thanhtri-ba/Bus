@@ -1,0 +1,96 @@
+import { Router } from 'express';
+import { PrismaClient } from '@prisma/client';
+import jwt from 'jsonwebtoken';
+
+const router = Router();
+const prisma = new PrismaClient();
+
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    // In a real app, you should verify password with bcrypt
+    const user = await prisma.user.findUnique({
+      where: { email },
+      select: {
+        id: true,
+        email: true,
+        role: true,
+      },
+    });
+
+    if (!user) {
+      res.status(401).json({ message: 'Invalid credentials' });
+      return;
+    }
+
+    const secret = process.env.JWT_SECRET;
+    if (!secret) {
+      res.status(500).json({ message: 'JWT configuration is missing' });
+      return;
+    }
+
+    const token = jwt.sign(
+      {
+        role: user.role,
+        email: user.email,
+      },
+      secret,
+      {
+        subject: user.id,
+        expiresIn: '15m',
+      },
+    );
+
+    res.json({ token, user });
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+import { verifyAccessToken } from './middleware/auth.middleware';
+
+router.get('/profile', verifyAccessToken as any, async (req: any, res: any) => {
+  try {
+    const userId = req.user?.id;
+    if (!userId) return res.status(401).json({ message: 'Unauthorized' });
+
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        id: true,
+        email: true,
+        phone: true,
+        fullName: true,
+        role: true,
+      }
+    });
+    res.json({ success: true, data: user });
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+router.put('/profile', verifyAccessToken as any, async (req: any, res: any) => {
+  try {
+    const userId = req.user?.id;
+    if (!userId) return res.status(401).json({ message: 'Unauthorized' });
+
+    const { fullName, phone } = req.body;
+    const user = await prisma.user.update({
+      where: { id: userId },
+      data: { fullName, phone },
+      select: {
+        id: true,
+        email: true,
+        phone: true,
+        fullName: true,
+        role: true,
+      }
+    });
+    res.json({ success: true, data: user });
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+export default router;

@@ -1,0 +1,1 @@
+const { PrismaClient } = require('@prisma/client'); const prisma = new PrismaClient(); async function main() { await prisma.$executeRawUnsafe("UPDATE auth.users SET email_confirmed_at = now() WHERE email = 'testuser3@busz.vn'"); console.log('Confirmed email'); } main().catch(console.error).finally(() => prisma.$disconnect());

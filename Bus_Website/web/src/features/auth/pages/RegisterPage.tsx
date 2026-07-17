@@ -1,0 +1,2 @@
+import { Link } from 'react-router-dom'; import { Button } from '@/design-system/components/Button'; import { Input } from '@/design-system/components/Input';
+export function RegisterPage(){return <><span className="eyebrow">Tạo tài khoản</span><h1>Tham gia BusZ</h1><form className="stack" onSubmit={e=>e.preventDefault()}><Input label="Họ và tên"/><Input label="Email" type="email"/><Input label="Mật khẩu" type="password"/><Button type="submit">Đăng ký</Button></form><p>Đã có tài khoản? <Link to="/login">Đăng nhập</Link></p></>}
